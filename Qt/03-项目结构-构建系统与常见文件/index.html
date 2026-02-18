@@ -1,0 +1,2094 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Qt/C++/QML 开发文档与组件库">
+      
+      
+      
+      
+        <link rel="prev" href="../02-QtCreator%E5%85%A5%E9%97%A8-%E5%88%9B%E5%BB%BA%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/">
+      
+      
+        <link rel="next" href="../04-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD-Qt%E7%9A%84%E2%80%9C%E4%BA%8B%E4%BB%B6%E8%BF%9E%E7%BA%BF%E2%80%9D/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>03-项目结构 - QrCraft 开发文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="QrCraft 开发文档" class="md-header__button md-logo" aria-label="QrCraft 开发文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QrCraft 开发文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03-项目结构
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  C++ 基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  Qt 开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qml/00-QML%E5%8D%95%E9%A1%B5%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83/" class="md-tabs__link">
+          
+  
+  
+  QML 组件
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QrCraft 开发文档" class="md-nav__button md-logo" aria-label="QrCraft 开发文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    QrCraft 开发文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++ 基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/01-%E4%BB%8E0%E5%BC%80%E5%A7%8B-%E5%8F%98%E9%87%8F%E6%9D%A1%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-从0开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/02-%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F-%E6%8A%8A%E4%BB%A3%E7%A0%81%E5%B0%81%E8%A3%85%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-函数与作用域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/03-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2-%E4%B8%80%E7%BB%84%E6%95%B0%E6%8D%AE%E6%80%8E%E4%B9%88%E6%94%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-数组与字符串
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/04-%E6%8C%87%E9%92%88%E4%B8%8E%E5%BC%95%E7%94%A8-%E7%90%86%E8%A7%A3%E5%86%85%E5%AD%98%E4%B8%8E%E5%9C%B0%E5%9D%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-指针与引用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/05-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%87%BD%E6%95%B0%E5%88%B0%E6%8A%BD%E8%B1%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-类与对象
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/06-%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86-%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8RAII%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-资源管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/07-STL%E5%AE%B9%E5%99%A8-vectormap%E7%AD%89%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%AE%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-STL容器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/08-STL%E7%AE%97%E6%B3%95%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8-%E6%8E%92%E5%BA%8F%E6%9F%A5%E6%89%BE%E9%81%8D%E5%8E%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-STL算法与迭代器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/09-%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E6%8E%92%E5%BA%8F%E5%8F%8C%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-复杂度与基础算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/10-%E9%80%92%E5%BD%92%E4%B8%8EDFS_BFS-%E6%A0%91%E4%B8%8E%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%B5%B0%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-递归与DFS_BFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/11-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8-%E4%BB%8E%E7%8A%B6%E6%80%81%E5%88%B0%E8%BD%AC%E7%A7%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-动态规划入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/12-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E9%80%9A%E8%AE%AF%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt 开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qt 开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-下载与安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-QtCreator%E5%85%A5%E9%97%A8-%E5%88%9B%E5%BB%BA%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-QtCreator入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-项目结构
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-项目结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先决知识（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 构建系统：它决定“怎么编译、怎么链接”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cmake-vs-qmake-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CMake vs qmake：新项目建议优先 CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CMake vs qmake：新项目建议优先 CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 CMake（更通用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-qmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 qmake（老项目常见）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 你最常见会遇到的文件：它们分别干什么
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 你最常见会遇到的文件：它们分别干什么">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-maincpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 main.cpp：程序从这里开始
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 .ui：用设计器做界面（可选）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-qrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 .qrc：资源系统清单
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 一个最小工程长什么样（用结构图认识）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 你最常做的两件事：加源码、加资源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 你最常做的两件事：加源码、加资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cpph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 新增一个 .cpp/.h 文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 新增一个资源（例如图片）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小练习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="小练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：加一个新类文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：加一张图到资源里
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD-Qt%E7%9A%84%E2%80%9C%E4%BA%8B%E4%BB%B6%E8%BF%9E%E7%BA%BF%E2%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-信号与槽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-Widget%E5%85%A5%E9%97%A8-%E7%AA%97%E5%8F%A3%E6%8C%89%E9%92%AE%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-Widget入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F-qrc%E5%9B%BE%E7%89%87%E5%AD%97%E4%BD%93%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-资源系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6-%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%AF%B9%E8%AF%9D%E6%A1%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-常用控件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80-QPainter%E7%94%BB%E5%9B%BE%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-绘制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E4%BB%BB%E5%8A%A1-%E4%B8%8D%E5%8D%A1UI%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-线程与任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-%E7%BD%91%E7%BB%9C%E4%B8%8EJSON-%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-网络与JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-QML%E5%85%A5%E9%97%A8-%E5%BF%AB%E9%80%9F%E6%90%AD%E7%95%8C%E9%9D%A2%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8QtQuick.Controls%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-QML入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9E%8B%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-Qt%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0-QStringQColor%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-常用类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML 组件
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    QML 组件
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/00-QML%E5%8D%95%E9%A1%B5%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/SplitText/SplitText/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SplitText
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先决知识（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 构建系统：它决定“怎么编译、怎么链接”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cmake-vs-qmake-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CMake vs qmake：新项目建议优先 CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CMake vs qmake：新项目建议优先 CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 CMake（更通用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-qmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 qmake（老项目常见）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 你最常见会遇到的文件：它们分别干什么
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 你最常见会遇到的文件：它们分别干什么">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-maincpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 main.cpp：程序从这里开始
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 .ui：用设计器做界面（可选）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-qrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 .qrc：资源系统清单
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 一个最小工程长什么样（用结构图认识）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 你最常做的两件事：加源码、加资源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 你最常做的两件事：加源码、加资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cpph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 新增一个 .cpp/.h 文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 新增一个资源（例如图片）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小练习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="小练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：加一个新类文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：加一张图到资源里
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="03-">03-项目结构：构建系统与常见文件<a class="headerlink" href="#03-" title="Permanent link">&para;</a></h1>
+<p>目录页：见 <a href="../00-%E7%9B%AE%E5%BD%95/">Qt 教程目录</a></p>
+<h2 id="_1">目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>看懂一个 Qt 工程的“骨架”：源码、资源、构建脚本分别做什么</li>
+<li>分清 CMake 和 qmake：你到底在写什么文件</li>
+<li>会用最小改动让工程“多加一个源文件/资源文件”</li>
+</ul>
+<h2 id="_2">先决知识（可选）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>能在 Qt Creator 创建并运行工程（见 02 章）</li>
+</ul>
+<hr />
+<h2 id="1">1. 构建系统：它决定“怎么编译、怎么链接”<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>专业名称：Build System（构建系统）</li>
+<li>类比：菜谱，告诉厨师先切什么、用什么火、最后怎么摆盘</li>
+<li>作用：把你的源码、依赖库、编译选项组织起来，生成可执行文件</li>
+<li>规则/坑点：Qt 工程常见两种菜谱：CMake（新）和 qmake（老）</li>
+</ul>
+<hr />
+<h2 id="2-cmake-vs-qmake-cmake">2. CMake vs qmake：新项目建议优先 CMake<a class="headerlink" href="#2-cmake-vs-qmake-cmake" title="Permanent link">&para;</a></h2>
+<h3 id="21-cmake">2.1 CMake（更通用）<a class="headerlink" href="#21-cmake" title="Permanent link">&para;</a></h3>
+<ul>
+<li>专业名称：CMake（跨平台构建系统）</li>
+<li>类比：通用菜谱语言，不只做 Qt，也能做很多 C++ 工程</li>
+<li>作用：跨平台、生态好、和现代 IDE 配合更顺</li>
+<li>规则/坑点：你主要改 <code>CMakeLists.txt</code></li>
+</ul>
+<p>你会看到的典型文件：</p>
+<ul>
+<li><code>CMakeLists.txt</code>：构建脚本</li>
+<li><code>main.cpp</code>：程序入口</li>
+<li>可能还有 <code>MainWindow.*</code>、<code>.ui</code>、<code>.qrc</code></li>
+</ul>
+<h3 id="22-qmake">2.2 qmake（老项目常见）<a class="headerlink" href="#22-qmake" title="Permanent link">&para;</a></h3>
+<ul>
+<li>专业名称：qmake（Qt 传统构建工具）</li>
+<li>类比：Qt 早期自带的菜谱格式</li>
+<li>作用：老项目兼容、很多教程还在用</li>
+<li>规则/坑点：你主要改 <code>.pro</code> 文件；新项目一般不再推荐从零开始用它</li>
+</ul>
+<hr />
+<h2 id="3">3. 你最常见会遇到的文件：它们分别干什么<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-maincpp">3.1 main.cpp：程序从这里开始<a class="headerlink" href="#31-maincpp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>专业名称：Entry Point（入口）</li>
+<li>类比：开机按钮按下后第一步执行的那段流程</li>
+<li>作用：创建 QApplication、创建窗口、进入事件循环</li>
+<li>规则/坑点：GUI 程序要在 <code>QApplication</code> 后才创建大部分界面对象</li>
+</ul>
+<h3 id="32-ui">3.2 .ui：用设计器做界面（可选）<a class="headerlink" href="#32-ui" title="Permanent link">&para;</a></h3>
+<ul>
+<li>专业名称：Qt Designer UI Form（界面表单）</li>
+<li>类比：拖拽式“装修图纸”</li>
+<li>作用：快速搭界面，再用代码连接逻辑</li>
+<li>规则/坑点：<code>.ui</code> 会在构建时生成对应的 C++ 代码，你一般不直接改生成文件</li>
+</ul>
+<h3 id="33-qrc">3.3 .qrc：资源系统清单<a class="headerlink" href="#33-qrc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>专业名称：Qt Resource System（Qt 资源系统）</li>
+<li>类比：把图片/字体/翻译文件打包进程序的“清单 + 行李箱”</li>
+<li>作用：发布时不需要额外拷贝资源文件，路径统一用 <code>:/...</code></li>
+<li>规则/坑点：资源路径不是磁盘路径，是资源路径（见 06 章会详细讲）</li>
+</ul>
+<hr />
+<h2 id="4">4. 一个最小工程长什么样（用结构图认识）<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>你可以把一个简单 Widgets 工程想象成：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MyApp/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  CMakeLists.txt
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  main.cpp
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  MainWindow.h
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  MainWindow.cpp
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  MainWindow.ui
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  resources.qrc
+</span></code></pre></div>
+<p>把它读成一句话：
+- CMakeLists：告诉“怎么编译”
+- main：程序入口
+- MainWindow：你的主窗口代码
+- ui：窗口布局图纸（可选）
+- qrc：把图片等资源打包（可选）</p>
+<hr />
+<h2 id="5">5. 你最常做的两件事：加源码、加资源<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51-cpph">5.1 新增一个 .cpp/.h 文件<a class="headerlink" href="#51-cpph" title="Permanent link">&para;</a></h3>
+<p>你新增一个 <code>Foo.cpp/Foo.h</code> 后，最重要的是让构建系统知道它存在：</p>
+<ul>
+<li>CMake：把文件加入 <code>target_sources(...)</code> 或你已有的源文件列表</li>
+<li>qmake：把文件加入 <code>.pro</code> 里的 <code>SOURCES +=</code> / <code>HEADERS +=</code></li>
+</ul>
+<p>Qt Creator 里“Add New...”通常会自动帮你把它加进构建脚本，但你要知道它在背后改了哪里。</p>
+<h3 id="52">5.2 新增一个资源（例如图片）<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>你新增图片后，最重要的是把它加入 <code>.qrc</code>，这样 <code>:/images/a.png</code> 才能被程序找到（见 06 章）。</p>
+<hr />
+<h2 id="_3">常见坑<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>错误：新增了 <code>.cpp</code>，但忘了加到构建脚本<br />
+  结果：编译时找不到符号/文件根本没参与编译<br />
+  正确：确认 CMakeLists/.pro 里确实包含它（见 5.1）</p>
+</li>
+<li>
+<p>错误：把磁盘路径当成资源路径<br />
+  结果：发布后资源丢失<br />
+  正确：资源文件用 <code>.qrc</code> 打包，代码里用 <code>:/...</code>（见 06 章）</p>
+</li>
+</ul>
+<hr />
+<h2 id="_4">小练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">练习 1：加一个新类文件<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>题目：新建一个 <code>Greeter</code> 类，提供 <code>QString hello()</code> 返回一句话</li>
+<li>输入/输出：运行程序后在窗口标题或控制台输出这句话</li>
+<li>约束：类文件必须是你自己新加的 <code>.h/.cpp</code></li>
+<li>提示：新增文件后检查构建脚本是否包含</li>
+<li>目标：熟悉“新增文件→能编译进工程”</li>
+</ul>
+<h3 id="2">练习 2：加一张图到资源里<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>题目：把一张 png 加进 <code>.qrc</code>，启动时设置为窗口图标</li>
+<li>输入/输出：窗口左上角图标变成你的图片</li>
+<li>约束：必须使用 <code>:/...</code> 资源路径</li>
+<li>提示：窗口图标常用 <code>setWindowIcon(QIcon(":/..."))</code></li>
+<li>目标：建立“资源要进 qrc 才稳定”的习惯</li>
+</ul>
+<hr />
+<h2 id="_5">小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>构建系统决定“怎么编译链接”，Qt 常见 CMake（新）与 qmake（老）</li>
+<li>main.cpp 是入口；.ui 是图纸；.qrc 是资源清单</li>
+<li>新增源码/资源要记得让构建系统“知道它存在”</li>
+</ul>
+<p>下一篇：见 <a href="../04-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD-Qt%E7%9A%84%E2%80%9C%E4%BA%8B%E4%BB%B6%E8%BF%9E%E7%BA%BF%E2%80%9D/">04-信号与槽-Qt的“事件连线”</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
