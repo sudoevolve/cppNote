@@ -1,0 +1,89 @@
+site_name: QrCraft 开发文档
+site_url: https://github.com/USERNAME/qrcraft
+site_description: Qt/C++/QML 开发文档与组件库
+
+# 文档根目录设为当前目录
+docs_dir: .
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+
+nav:
+  - 首页: index.md
+  - C++ 基础:
+    - 目录: cpp/00-目录.md
+    - 01-从0开始: cpp/01-从0开始-变量条件循环.md
+    - 02-函数与作用域: cpp/02-函数与作用域-把代码封装成工具.md
+    - 03-数组与字符串: cpp/03-数组与字符串-一组数据怎么放.md
+    - 04-指针与引用: cpp/04-指针与引用-理解内存与地址.md
+    - 05-类与对象: cpp/05-类与对象-从数据加函数到抽象.md
+    - 06-资源管理: cpp/06-资源管理-拷贝移动RAII智能指针.md
+    - 07-STL容器: cpp/07-STL容器-vectormap等常用工具箱.md
+    - 08-STL算法与迭代器: cpp/08-STL算法与迭代器-排序查找遍历.md
+    - 09-复杂度与基础算法: cpp/09-复杂度与基础算法-二分排序双指针.md
+    - 10-递归与DFS_BFS: cpp/10-递归与DFS_BFS-树与图的基本走法.md
+    - 11-动态规划入门: cpp/11-动态规划入门-从状态到转移.md
+    - 12-综合练习: cpp/12-综合练习小项目-通讯录.md
+  - Qt 开发:
+    - 目录: Qt/00-目录.md
+    - 01-下载与安装: Qt/01-下载与安装-阿里云镜像加速.md
+    - 02-QtCreator入门: Qt/02-QtCreator入门-创建运行第一个工程.md
+    - 03-项目结构: Qt/03-项目结构-构建系统与常见文件.md
+    - 04-信号与槽: Qt/04-信号与槽-Qt的“事件连线”.md
+    - 05-Widget入门: Qt/05-Widget入门-窗口按钮布局.md
+    - 06-资源系统: Qt/06-资源系统-qrc图片字体翻译.md
+    - 07-常用控件: Qt/07-常用控件-输入列表对话框.md
+    - 08-绘制基础: Qt/08-绘制基础-QPainter画图与自定义控件.md
+    - 09-线程与任务: Qt/09-线程与任务-不卡UI的正确姿势.md
+    - 10-网络与JSON: Qt/10-网络与JSON-请求接口与解析数据.md
+    - 11-QML入门: Qt/11-QML入门-快速搭界面（不使用QtQuick.Controls）.md
+    - 12-综合练习: Qt/12-综合练习-做一个小型桌面工具.md
+    - 13-常用类型: Qt/13-Qt常用类型与自定义函数-QStringQColor等.md
+  - QML 组件:
+    - 规范: qml/00-QML单页组件规范.md
+    - SplitText: qml/SplitText/SplitText.md
