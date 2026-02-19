@@ -56,6 +56,12 @@
   }
 
   function getCssVar(name) {
+    const body = document.body;
+    if (body instanceof HTMLElement) {
+      const v = getComputedStyle(body).getPropertyValue(name).trim();
+      if (v) return v;
+    }
+
     const root = document.documentElement;
     if (!(root instanceof HTMLElement)) return "";
     return getComputedStyle(root).getPropertyValue(name).trim();
