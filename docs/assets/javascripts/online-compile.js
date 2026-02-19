@@ -64,13 +64,10 @@
   function createHeaderButton() {
     const a = document.createElement("a");
     a.href = "https://godbolt.org/";
-    a.className = "md-header__button md-icon online-compile-header-button";
+    a.className = "md-button online-compile-header-button";
     a.title = "在线编译（打开 Compiler Explorer）";
     a.setAttribute("aria-label", a.title);
-    a.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">' +
-      '<path d="M10 17l6-5-6-5v10ZM19 19H5V5h14v14Zm0-16H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/>' +
-      "</svg>";
+    a.textContent = "在线编译";
 
     a.addEventListener("click", (e) => {
       e.preventDefault();
@@ -81,15 +78,24 @@
   }
 
   function ensureHeaderButton() {
-    const headerInner =
-      document.querySelector(".md-header__inner") ||
-      document.querySelector("header.md-header") ||
-      document.body;
+    const header = document.querySelector("header.md-header") || document.querySelector(".md-header");
+    if (!(header instanceof HTMLElement)) return;
 
-    if (!(headerInner instanceof HTMLElement)) return;
-    if (headerInner.querySelector(".online-compile-header-button")) return;
+    const search = header.querySelector(".md-search");
+    const target =
+      (search && search.parentElement instanceof HTMLElement ? search.parentElement : null) ||
+      header.querySelector(".md-header__inner") ||
+      header;
 
-    headerInner.appendChild(createHeaderButton());
+    if (!(target instanceof HTMLElement)) return;
+    if (target.querySelector(".online-compile-header-button")) return;
+
+    const btn = createHeaderButton();
+    if (search && search instanceof HTMLElement) {
+      target.insertBefore(btn, search);
+    } else {
+      target.appendChild(btn);
+    }
   }
 
   function onReady(fn) {
@@ -100,10 +106,18 @@
     }
   }
 
-  onReady(() => {
+  function init() {
     ensureHeaderButton();
+  }
 
-    const observer = new MutationObserver(() => ensureHeaderButton());
-    observer.observe(document.body, { childList: true, subtree: true });
+  onReady(() => {
+    const doc$ = window.document$;
+    if (doc$ && typeof doc$.subscribe === "function") {
+      doc$.subscribe(() => init());
+    } else {
+      init();
+      const observer = new MutationObserver(() => init());
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
   });
 })();
