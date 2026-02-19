@@ -10,44 +10,14 @@
     return btoa(binary);
   }
 
-  function findCppCodeBlocks() {
+  function findCppCodeBlocks(root) {
     const selectors = [
       "pre > code.language-cpp",
       "pre > code.language-c\\+\\+",
       "pre > code.lang-cpp",
       "pre > code.lang-c\\+\\+",
     ];
-    return Array.from(document.querySelectorAll(selectors.join(",")));
-  }
-
-  function codeBlockHasMain(code) {
-    return /\bmain\s*\(/.test(code);
-  }
-
-  function getPreElement(codeEl) {
-    if (!codeEl) return null;
-    const pre = codeEl.closest("pre");
-    return pre instanceof HTMLElement ? pre : null;
-  }
-
-  function getHighlightContainer(preEl) {
-    const highlight = preEl.closest(".highlight");
-    return (highlight instanceof HTMLElement ? highlight : preEl.parentElement) || preEl;
-  }
-
-  function createButton(onClick) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "md-clipboard online-compile-button";
-    btn.title = "在线编译（打开 Compiler Explorer）";
-    btn.setAttribute("aria-label", btn.title);
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      onClick();
-    });
-    btn.textContent = "在线编译";
-    return btn;
+    return Array.from((root || document).querySelectorAll(selectors.join(",")));
   }
 
   function buildCompilerExplorerUrl(source) {
@@ -77,32 +47,49 @@
     return `https://godbolt.org/clientstate/${encoded}`;
   }
 
-  function addButtons() {
-    const blocks = findCppCodeBlocks();
-    for (const codeEl of blocks) {
-      const preEl = getPreElement(codeEl);
-      if (!preEl) continue;
+  function getSourceForCurrentPage() {
+    const content = document.querySelector(".md-content");
+    const blocks = findCppCodeBlocks(content || document);
+    const first = blocks[0];
+    const code = (first?.textContent || "").trim();
+    if (code) return code;
+    return "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, C++!\" << '\\n';\n    return 0;\n}\n";
+  }
 
-      const container = getHighlightContainer(preEl);
-      if (container.querySelector(".online-compile-button")) continue;
+  function openCompilerExplorer() {
+    const url = buildCompilerExplorerUrl(getSourceForCurrentPage());
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
-      const code = (codeEl.textContent || "").trim();
-      if (!code) continue;
+  function createHeaderButton() {
+    const a = document.createElement("a");
+    a.href = "https://godbolt.org/";
+    a.className = "md-header__button md-icon online-compile-header-button";
+    a.title = "在线编译（打开 Compiler Explorer）";
+    a.setAttribute("aria-label", a.title);
+    a.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M10 17l6-5-6-5v10ZM19 19H5V5h14v14Zm0-16H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/>' +
+      "</svg>";
 
-      const btn = createButton(() => {
-        const url = buildCompilerExplorerUrl(code);
-        window.open(url, "_blank", "noopener,noreferrer");
-      });
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      openCompilerExplorer();
+    });
 
-      if (!codeBlockHasMain(code)) {
-        btn.classList.add("online-compile-button--no-main");
-        btn.title = "在线编译（片段可能需要补全 main）";
-        btn.setAttribute("aria-label", btn.title);
-      }
+    return a;
+  }
 
-      container.appendChild(btn);
-      container.classList.add("online-compile-container");
-    }
+  function ensureHeaderButton() {
+    const headerInner =
+      document.querySelector(".md-header__inner") ||
+      document.querySelector("header.md-header") ||
+      document.body;
+
+    if (!(headerInner instanceof HTMLElement)) return;
+    if (headerInner.querySelector(".online-compile-header-button")) return;
+
+    headerInner.appendChild(createHeaderButton());
   }
 
   function onReady(fn) {
@@ -114,9 +101,9 @@
   }
 
   onReady(() => {
-    addButtons();
+    ensureHeaderButton();
 
-    const observer = new MutationObserver(() => addButtons());
+    const observer = new MutationObserver(() => ensureHeaderButton());
     observer.observe(document.body, { childList: true, subtree: true });
   });
 })();
