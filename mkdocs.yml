@@ -19,16 +19,16 @@ theme:
     # 浅色模式
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: purple
+      primary: deep purple
+      accent: pink
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # 深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: lime
+      primary: deep purple
+      accent: pink
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -55,9 +55,11 @@ markdown_extensions:
 
 extra_javascript:
   - assets/javascripts/online-compile.js
+  - assets/javascripts/theme-palette.js
 
 extra_css:
   - assets/stylesheets/online-compile.css
+  - assets/stylesheets/theme-palette.css
 
 nav:
   - 首页: index.md
