@@ -1,0 +1,290 @@
+(() => {
+  const STORAGE_KEY = "qrcraft_palette_v1";
+
+  const presets = [
+    {
+      id: "md3",
+      name: "MD3 默认",
+      primary: "#6750A4",
+      accent: "#EFB8C8",
+    },
+    {
+      id: "teal_purple",
+      name: "Teal + Purple",
+      primary: "#009688",
+      accent: "#9C27B0",
+    },
+    {
+      id: "blue_amber",
+      name: "Blue + Amber",
+      primary: "#1E88E5",
+      accent: "#FFB300",
+    },
+  ];
+
+  function safeParse(json) {
+    try {
+      return JSON.parse(json);
+    } catch {
+      return null;
+    }
+  }
+
+  function loadConfig() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const data = raw ? safeParse(raw) : null;
+    if (!data || typeof data !== "object") return null;
+    return data;
+  }
+
+  function saveConfig(cfg) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
+  }
+
+  function isHexColor(s) {
+    return typeof s === "string" && /^#[0-9a-fA-F]{6}$/.test(s);
+  }
+
+  function applyColors(primary, accent) {
+    const root = document.documentElement;
+    if (isHexColor(primary)) {
+      root.style.setProperty("--md-primary-fg-color", primary);
+      root.style.setProperty("--md-primary-fg-color--light", primary);
+      root.style.setProperty("--md-primary-fg-color--dark", primary);
+    }
+    if (isHexColor(accent)) {
+      root.style.setProperty("--md-accent-fg-color", accent);
+      root.style.setProperty("--md-accent-fg-color--transparent", `${accent}22`);
+    }
+  }
+
+  function applyFromStorage() {
+    const cfg = loadConfig();
+    if (!cfg) return;
+    applyColors(cfg.primary, cfg.accent);
+  }
+
+  function getSourceForCurrentPage() {
+    const content = document.querySelector(".md-content");
+    const code = content?.querySelector("pre > code")?.textContent?.trim();
+    return code || "";
+  }
+
+  function createHeaderButton() {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "md-button theme-palette-header-button";
+    btn.textContent = "配色";
+    btn.title = "配色设置";
+    btn.setAttribute("aria-label", btn.title);
+    return btn;
+  }
+
+  function ensureHeaderButton(onClick) {
+    const header = document.querySelector("header.md-header") || document.querySelector(".md-header");
+    if (!(header instanceof HTMLElement)) return;
+
+    const search = header.querySelector(".md-search");
+    const target =
+      (search && search.parentElement instanceof HTMLElement ? search.parentElement : null) ||
+      header.querySelector(".md-header__inner") ||
+      header;
+
+    if (!(target instanceof HTMLElement)) return;
+    if (target.querySelector(".theme-palette-header-button")) return;
+
+    const btn = createHeaderButton();
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick();
+    });
+
+    if (search && search instanceof HTMLElement) {
+      const before = target.querySelector(".md-search") || search;
+      target.insertBefore(btn, before);
+    } else {
+      target.appendChild(btn);
+    }
+  }
+
+  function createDialog() {
+    const overlay = document.createElement("div");
+    overlay.className = "theme-palette-overlay";
+    overlay.hidden = true;
+
+    const panel = document.createElement("div");
+    panel.className = "theme-palette-panel";
+    panel.setAttribute("role", "dialog");
+    panel.setAttribute("aria-modal", "true");
+    panel.setAttribute("aria-label", "配色设置");
+
+    const header = document.createElement("div");
+    header.className = "theme-palette-panel__header";
+
+    const title = document.createElement("div");
+    title.className = "theme-palette-panel__title";
+    title.textContent = "配色设置";
+
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "md-button theme-palette-close";
+    close.textContent = "关闭";
+
+    header.appendChild(title);
+    header.appendChild(close);
+
+    const body = document.createElement("div");
+    body.className = "theme-palette-panel__body";
+
+    const presetLabel = document.createElement("div");
+    presetLabel.className = "theme-palette-section-title";
+    presetLabel.textContent = "预设";
+
+    const presetList = document.createElement("div");
+    presetList.className = "theme-palette-presets";
+
+    for (const p of presets) {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "md-button theme-palette-preset";
+      item.textContent = p.name;
+      item.dataset.primary = p.primary;
+      item.dataset.accent = p.accent;
+      presetList.appendChild(item);
+    }
+
+    const customLabel = document.createElement("div");
+    customLabel.className = "theme-palette-section-title";
+    customLabel.textContent = "自定义";
+
+    const customRow = document.createElement("div");
+    customRow.className = "theme-palette-custom";
+
+    const primaryWrap = document.createElement("label");
+    primaryWrap.className = "theme-palette-field";
+    const primaryText = document.createElement("span");
+    primaryText.textContent = "主色";
+    const primaryInput = document.createElement("input");
+    primaryInput.type = "color";
+    primaryInput.value = "#6750A4";
+    primaryWrap.appendChild(primaryText);
+    primaryWrap.appendChild(primaryInput);
+
+    const accentWrap = document.createElement("label");
+    accentWrap.className = "theme-palette-field";
+    const accentText = document.createElement("span");
+    accentText.textContent = "强调色";
+    const accentInput = document.createElement("input");
+    accentInput.type = "color";
+    accentInput.value = "#EFB8C8";
+    accentWrap.appendChild(accentText);
+    accentWrap.appendChild(accentInput);
+
+    const applyBtn = document.createElement("button");
+    applyBtn.type = "button";
+    applyBtn.className = "md-button md-button--primary theme-palette-apply";
+    applyBtn.textContent = "应用";
+
+    const resetBtn = document.createElement("button");
+    resetBtn.type = "button";
+    resetBtn.className = "md-button theme-palette-reset";
+    resetBtn.textContent = "恢复默认";
+
+    customRow.appendChild(primaryWrap);
+    customRow.appendChild(accentWrap);
+    customRow.appendChild(applyBtn);
+    customRow.appendChild(resetBtn);
+
+    body.appendChild(presetLabel);
+    body.appendChild(presetList);
+    body.appendChild(customLabel);
+    body.appendChild(customRow);
+
+    panel.appendChild(header);
+    panel.appendChild(body);
+
+    overlay.appendChild(panel);
+
+    function open() {
+      const cfg = loadConfig();
+      if (cfg?.primary && isHexColor(cfg.primary)) primaryInput.value = cfg.primary;
+      if (cfg?.accent && isHexColor(cfg.accent)) accentInput.value = cfg.accent;
+      overlay.hidden = false;
+      document.documentElement.classList.add("theme-palette-open");
+    }
+
+    function closePanel() {
+      overlay.hidden = true;
+      document.documentElement.classList.remove("theme-palette-open");
+    }
+
+    function applyAndSave(primary, accent) {
+      applyColors(primary, accent);
+      saveConfig({ primary, accent });
+    }
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closePanel();
+    });
+
+    close.addEventListener("click", () => closePanel());
+    document.addEventListener("keydown", (e) => {
+      if (!overlay.hidden && e.key === "Escape") closePanel();
+    });
+
+    presetList.addEventListener("click", (e) => {
+      const t = e.target;
+      if (!(t instanceof HTMLElement)) return;
+      if (!(t instanceof HTMLButtonElement)) return;
+      const primary = t.dataset.primary;
+      const accent = t.dataset.accent;
+      if (!isHexColor(primary) || !isHexColor(accent)) return;
+      applyAndSave(primary, accent);
+    });
+
+    applyBtn.addEventListener("click", () => {
+      applyAndSave(primaryInput.value, accentInput.value);
+    });
+
+    resetBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      document.documentElement.style.removeProperty("--md-primary-fg-color");
+      document.documentElement.style.removeProperty("--md-primary-fg-color--light");
+      document.documentElement.style.removeProperty("--md-primary-fg-color--dark");
+      document.documentElement.style.removeProperty("--md-accent-fg-color");
+      document.documentElement.style.removeProperty("--md-accent-fg-color--transparent");
+      primaryInput.value = "#6750A4";
+      accentInput.value = "#EFB8C8";
+    });
+
+    return { overlay, open, close: closePanel };
+  }
+
+  function mount() {
+    applyFromStorage();
+
+    if (document.querySelector(".theme-palette-overlay")) return;
+    const { overlay, open } = createDialog();
+    document.body.appendChild(overlay);
+
+    ensureHeaderButton(() => open());
+  }
+
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  onReady(() => {
+    const doc$ = window.document$;
+    if (doc$ && typeof doc$.subscribe === "function") {
+      doc$.subscribe(() => mount());
+    } else {
+      mount();
+    }
+  });
+})();
