@@ -1,5 +1,6 @@
 (() => {
   const STORAGE_KEY = "qrcraft_palette_v1";
+  const STYLE_TAG_ID = "qrcraft-theme-palette-style";
 
   const presets = [
     {
@@ -45,17 +46,50 @@
     return typeof s === "string" && /^#[0-9a-fA-F]{6}$/.test(s);
   }
 
+  function hexToRgb(hex) {
+    if (!isHexColor(hex)) return null;
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
+  }
+
+  function ensureStyleTag() {
+    const existing = document.getElementById(STYLE_TAG_ID);
+    if (existing instanceof HTMLStyleElement) return existing;
+    const style = document.createElement("style");
+    style.id = STYLE_TAG_ID;
+    document.head.appendChild(style);
+    return style;
+  }
+
+  function clearStyleTag() {
+    const el = document.getElementById(STYLE_TAG_ID);
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
   function applyColors(primary, accent) {
-    const root = document.documentElement;
-    if (isHexColor(primary)) {
-      root.style.setProperty("--md-primary-fg-color", primary);
-      root.style.setProperty("--md-primary-fg-color--light", primary);
-      root.style.setProperty("--md-primary-fg-color--dark", primary);
+    const p = isHexColor(primary) ? primary : null;
+    const a = isHexColor(accent) ? accent : null;
+    const pRgb = p ? hexToRgb(p) : null;
+    const aRgb = a ? hexToRgb(a) : null;
+
+    const lines = [];
+    lines.push(":root {");
+    if (p) {
+      lines.push(`  --md-primary-fg-color: ${p} !important;`);
+      lines.push(`  --md-primary-fg-color--light: ${p} !important;`);
+      lines.push(`  --md-primary-fg-color--dark: ${p} !important;`);
+      if (pRgb) lines.push(`  --md-primary-fg-color--rgb: ${pRgb.r}, ${pRgb.g}, ${pRgb.b} !important;`);
     }
-    if (isHexColor(accent)) {
-      root.style.setProperty("--md-accent-fg-color", accent);
-      root.style.setProperty("--md-accent-fg-color--transparent", `${accent}22`);
+    if (a) {
+      lines.push(`  --md-accent-fg-color: ${a} !important;`);
+      if (aRgb) lines.push(`  --md-accent-fg-color--rgb: ${aRgb.r}, ${aRgb.g}, ${aRgb.b} !important;`);
     }
+    lines.push("}");
+
+    const style = ensureStyleTag();
+    style.textContent = lines.join("\n");
   }
 
   function applyFromStorage() {
@@ -254,11 +288,7 @@
 
     resetBtn.addEventListener("click", () => {
       localStorage.removeItem(STORAGE_KEY);
-      document.documentElement.style.removeProperty("--md-primary-fg-color");
-      document.documentElement.style.removeProperty("--md-primary-fg-color--light");
-      document.documentElement.style.removeProperty("--md-primary-fg-color--dark");
-      document.documentElement.style.removeProperty("--md-accent-fg-color");
-      document.documentElement.style.removeProperty("--md-accent-fg-color--transparent");
+      clearStyleTag();
       primaryInput.value = "#6750A4";
       accentInput.value = "#EFB8C8";
     });
