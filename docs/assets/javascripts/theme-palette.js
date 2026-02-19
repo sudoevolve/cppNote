@@ -134,21 +134,9 @@
     style.textContent = lines.join("\n");
   }
 
-  function applyDefaultsFromTheme() {
-    const primary = getCssVar("--md-primary-fg-color");
-    const primaryHex = rgbStringToHex(primary) || (isHexColor(primary) ? primary.toUpperCase() : null);
-    if (!primaryHex) return;
-
-    const accentHex = lightenHex(primaryHex, 0.35) || primaryHex;
-    applyColors(primaryHex, accentHex);
-  }
-
-  function applyFromStorageOrThemeDefaults() {
+  function applyFromStorage() {
     const cfg = loadConfig();
-    if (!cfg) {
-      applyDefaultsFromTheme();
-      return;
-    }
+    if (!cfg) return;
     applyColors(cfg.primary, cfg.accent);
   }
 
@@ -352,19 +340,19 @@
     resetBtn.addEventListener("click", () => {
       localStorage.removeItem(STORAGE_KEY);
       clearStyleTag();
-      applyFromStorageOrThemeDefaults();
       const p = getCssVar("--md-primary-fg-color");
-      const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null) || "#6750A4";
-      const aHex = lightenHex(pHex, 0.35) || "#EFB8C8";
-      primaryInput.value = pHex;
-      accentInput.value = aHex;
+      const a = getCssVar("--md-accent-fg-color");
+      const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
+      const aHex = rgbStringToHex(a) || (isHexColor(a) ? a : null);
+      if (pHex) primaryInput.value = pHex;
+      if (aHex) accentInput.value = aHex;
     });
 
     return { overlay, open, close: closePanel };
   }
 
   function mount() {
-    applyFromStorageOrThemeDefaults();
+    applyFromStorage();
 
     if (document.querySelector(".theme-palette-overlay")) return;
     const { overlay, open } = createDialog();
