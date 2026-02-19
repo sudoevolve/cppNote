@@ -1,5 +1,4 @@
 (() => {
-  const STORAGE_KEY = "qrcraft_palette_v1";
   const STYLE_TAG_ID = "qrcraft-theme-palette-style";
 
   const presets = [
@@ -22,25 +21,6 @@
       accent: "#FFB300",
     },
   ];
-
-  function safeParse(json) {
-    try {
-      return JSON.parse(json);
-    } catch {
-      return null;
-    }
-  }
-
-  function loadConfig() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    const data = raw ? safeParse(raw) : null;
-    if (!data || typeof data !== "object") return null;
-    return data;
-  }
-
-  function saveConfig(cfg) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-  }
 
   function isHexColor(s) {
     return typeof s === "string" && /^#[0-9a-fA-F]{6}$/.test(s);
@@ -134,12 +114,6 @@
     style.textContent = lines.join("\n");
   }
 
-  function applyFromStorage() {
-    const cfg = loadConfig();
-    if (!cfg) return;
-    applyColors(cfg.primary, cfg.accent);
-  }
-
   function createHeaderButton() {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -182,6 +156,15 @@
   }
 
   function createDialog() {
+    function syncInputsToComputed(primaryInput, accentInput) {
+      const p = getCssVar("--md-primary-fg-color");
+      const a = getCssVar("--md-accent-fg-color");
+      const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
+      const aHex = rgbStringToHex(a) || (isHexColor(a) ? a : null);
+      if (pHex) primaryInput.value = pHex;
+      if (aHex) accentInput.value = aHex;
+    }
+
     const overlay = document.createElement("div");
     overlay.className = "theme-palette-overlay";
     overlay.hidden = true;
@@ -280,16 +263,7 @@
     overlay.appendChild(panel);
 
     function open() {
-      const cfg = loadConfig();
-      if (cfg?.primary && isHexColor(cfg.primary)) primaryInput.value = cfg.primary;
-      if (cfg?.accent && isHexColor(cfg.accent)) accentInput.value = cfg.accent;
-      if (!cfg) {
-        const p = getCssVar("--md-primary-fg-color");
-        const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
-        if (pHex) primaryInput.value = pHex;
-        const aHex = pHex ? lightenHex(pHex, 0.35) : null;
-        if (aHex) accentInput.value = aHex;
-      }
+      syncInputsToComputed(primaryInput, accentInput);
       overlay.hidden = false;
       overlay.style.removeProperty("display");
       document.documentElement.classList.add("theme-palette-open");
@@ -301,9 +275,8 @@
       document.documentElement.classList.remove("theme-palette-open");
     }
 
-    function applyAndSave(primary, accent) {
+    function applyNow(primary, accent) {
       applyColors(primary, accent);
-      saveConfig({ primary, accent });
     }
 
     panel.addEventListener("click", (e) => {
@@ -330,30 +303,24 @@
       const primary = t.dataset.primary;
       const accent = t.dataset.accent;
       if (!isHexColor(primary) || !isHexColor(accent)) return;
-      applyAndSave(primary, accent);
+      applyNow(primary, accent);
     });
 
     applyBtn.addEventListener("click", () => {
-      applyAndSave(primaryInput.value, accentInput.value);
+      applyNow(primaryInput.value, accentInput.value);
     });
 
     resetBtn.addEventListener("click", () => {
-      localStorage.removeItem(STORAGE_KEY);
       clearStyleTag();
-      const p = getCssVar("--md-primary-fg-color");
-      const a = getCssVar("--md-accent-fg-color");
-      const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
-      const aHex = rgbStringToHex(a) || (isHexColor(a) ? a : null);
-      if (pHex) primaryInput.value = pHex;
-      if (aHex) accentInput.value = aHex;
+      requestAnimationFrame(() => {
+        syncInputsToComputed(primaryInput, accentInput);
+      });
     });
 
     return { overlay, open, close: closePanel };
   }
 
   function mount() {
-    applyFromStorage();
-
     if (document.querySelector(".theme-palette-overlay")) return;
     const { overlay, open } = createDialog();
     document.body.appendChild(overlay);
