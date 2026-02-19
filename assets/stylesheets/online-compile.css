@@ -1,0 +1,18 @@
+.online-compile-container {
+  position: relative;
+}
+
+.online-compile-button {
+  position: absolute;
+  top: 0.4rem;
+  right: 3rem;
+  z-index: 3;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1.1;
+  border-radius: 0.4rem;
+}
+
+.online-compile-button--no-main {
+  opacity: 0.85;
+}
