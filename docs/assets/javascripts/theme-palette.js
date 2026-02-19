@@ -208,11 +208,13 @@
       if (cfg?.primary && isHexColor(cfg.primary)) primaryInput.value = cfg.primary;
       if (cfg?.accent && isHexColor(cfg.accent)) accentInput.value = cfg.accent;
       overlay.hidden = false;
+      overlay.style.removeProperty("display");
       document.documentElement.classList.add("theme-palette-open");
     }
 
     function closePanel() {
       overlay.hidden = true;
+      overlay.style.display = "none";
       document.documentElement.classList.remove("theme-palette-open");
     }
 
@@ -222,10 +224,16 @@
     }
 
     overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) closePanel();
-    });
+      const t = e.target;
+      if (!(t instanceof Node)) return;
+      if (t === overlay) closePanel();
+      if (t instanceof Element && t.closest(".theme-palette-close")) closePanel();
+    }, { capture: true });
 
-    close.addEventListener("click", () => closePanel());
+    close.addEventListener("click", (e) => {
+      e.preventDefault();
+      closePanel();
+    });
     document.addEventListener("keydown", (e) => {
       if (!overlay.hidden && e.key === "Escape") closePanel();
     });
@@ -264,6 +272,10 @@
     if (document.querySelector(".theme-palette-overlay")) return;
     const { overlay, open } = createDialog();
     document.body.appendChild(overlay);
+
+    overlay.hidden = true;
+    overlay.style.display = "none";
+    document.documentElement.classList.remove("theme-palette-open");
 
     ensureHeaderButton(() => open());
   }

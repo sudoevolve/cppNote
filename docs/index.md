@@ -1,6 +1,6 @@
-# QrCraft 开发文档
+# QtCraft 开发文档
 
-欢迎来到 QrCraft 开发文档。这是一个关于 Qt、C++ 和 QML 开发的学习资源库。
+欢迎来到 QtCraft 开发文档。这是一个关于 Qt、C++ 和 QML 开发的学习资源库。
 
 ## 快速导航
 
