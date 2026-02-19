@@ -81,10 +81,15 @@
       lines.push(`  --md-primary-fg-color--light: ${p} !important;`);
       lines.push(`  --md-primary-fg-color--dark: ${p} !important;`);
       if (pRgb) lines.push(`  --md-primary-fg-color--rgb: ${pRgb.r}, ${pRgb.g}, ${pRgb.b} !important;`);
+      if (pRgb) lines.push(`  --md-primary-fg-color--transparent: rgba(${pRgb.r}, ${pRgb.g}, ${pRgb.b}, 0.12) !important;`);
     }
     if (a) {
       lines.push(`  --md-accent-fg-color: ${a} !important;`);
       if (aRgb) lines.push(`  --md-accent-fg-color--rgb: ${aRgb.r}, ${aRgb.g}, ${aRgb.b} !important;`);
+      if (aRgb) lines.push(`  --md-accent-fg-color--transparent: rgba(${aRgb.r}, ${aRgb.g}, ${aRgb.b}, 0.12) !important;`);
+      lines.push(`  --md-typeset-a-color: ${a} !important;`);
+      lines.push(`  --md-typeset-a-color--hover: ${a} !important;`);
+      lines.push(`  --md-typeset-mark-color: ${a} !important;`);
     }
     lines.push("}");
 
