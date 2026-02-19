@@ -53,6 +53,12 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_javascript:
+  - assets/javascripts/online-compile.js
+
+extra_css:
+  - assets/stylesheets/online-compile.css
+
 nav:
   - 首页: index.md
   - C++ 基础:
