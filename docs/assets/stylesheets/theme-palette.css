@@ -1,9 +1,8 @@
 .theme-palette-header-button {
-  margin-right: 0.5rem;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.7rem;
-  line-height: 1.2;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.25rem;
 }
 
 .theme-palette-overlay {
@@ -15,6 +14,15 @@
   align-items: flex-start;
   justify-content: center;
   padding: 4rem 1rem 1rem;
+}
+
+.theme-palette-overlay[hidden] {
+  display: none !important;
+}
+
+.theme-palette-header-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .theme-palette-panel {

@@ -64,19 +64,16 @@
     applyColors(cfg.primary, cfg.accent);
   }
 
-  function getSourceForCurrentPage() {
-    const content = document.querySelector(".md-content");
-    const code = content?.querySelector("pre > code")?.textContent?.trim();
-    return code || "";
-  }
-
   function createHeaderButton() {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "md-button theme-palette-header-button";
-    btn.textContent = "配色";
+    btn.className = "md-header__button md-icon theme-palette-header-button";
     btn.title = "配色设置";
     btn.setAttribute("aria-label", btn.title);
+    btn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M12 22a10 10 0 1 1 10-10c0 1.1-.9 2-2 2h-1a2 2 0 0 0-2 2c0 2.2-1.8 4-4 4Zm0-18a8 8 0 0 0 0 16c1.1 0 2-.9 2-2 0-1.7 1.3-3 3-3h1c0-2.2-1.8-4-4-4H9a4 4 0 0 1 0-8h3Zm-5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm4 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>' +
+      "</svg>";
     return btn;
   }
 
