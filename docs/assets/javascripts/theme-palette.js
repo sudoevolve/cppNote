@@ -75,7 +75,7 @@
     const aRgb = a ? hexToRgb(a) : null;
 
     const lines = [];
-    lines.push(":root {");
+    lines.push(":root, body, body[data-md-color-scheme], body[data-md-color-primary], body[data-md-color-accent] {");
     if (p) {
       lines.push(`  --md-primary-fg-color: ${p} !important;`);
       lines.push(`  --md-primary-fg-color--light: ${p} !important;`);
