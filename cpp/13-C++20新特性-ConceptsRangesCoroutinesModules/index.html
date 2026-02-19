@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../12-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E9%80%9A%E8%AE%AF%E5%BD%95/">
+      
+      
+        <link rel="next" href="../14-C%2B%2B23%E6%96%B0%E7%89%B9%E6%80%A7-%E6%A0%87%E5%87%86%E5%BA%93%E6%9B%B4%E5%A5%BD%E7%94%A8%E4%B8%8E%E8%AF%AD%E6%B3%95%E8%A1%A5%E5%BC%BA/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>13-C++20 新特性：Concepts、Ranges、Coroutines、Modules（入门） - QrCraft 开发文档</title>
+        <title>13-C++20新特性 - QrCraft 开发文档</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13-C++20 新特性：Concepts、Ranges、Coroutines、Modules（入门）
+              13-C++20新特性
             
           </span>
         </div>
@@ -226,10 +230,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
           
   
@@ -346,26 +352,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -383,7 +394,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -745,6 +756,509 @@
     
   
     12-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-C++20新特性
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-C++20新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先决知识（建议）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 先给结论：C++20 到底“升级了什么”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Concepts：给模板加“可读的类型要求”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Concepts：给模板加“可读的类型要求”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-requires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 用 requires 写最小约束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-stdintegral-stdfloating_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 直接用标准库的概念：std::integral / std::floating_point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Concepts 的真实价值：报错与重载选择更清晰
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ranges：把“遍历 + 过滤 + 变换”写成流水线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ranges：把“遍历 + 过滤 + 变换”写成流水线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-views-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 最常用：views 管道 + ranges 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 常见坑：对临时容器做 view
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 你会经常用到的 view 组合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-coroutines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Coroutines：把“暂停与继续”变成语言能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Coroutines：把“暂停与继续”变成语言能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-co_yield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 一个最小生成器（co_yield）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 现实建议：把协程当成“底层机制”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Modules：替代头文件的“更干净的导入”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Modules：替代头文件的“更干净的导入”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 一个最小示意
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. C++20 其他高频语言特性（你很快就会用到）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. C++20 其他高频语言特性（你很快就会用到）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-stdspan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 std::span：把“指针 + 长度”打包成安全视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 三路比较 &lt;=&gt;：让比较运算“自动补齐”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-designated-initializers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 指定初始化（designated initializers）：让聚合初始化更不容易写错
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-consteval-constinit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 consteval / constinit：更明确的“编译期”语义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-stdformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 std::format：更清晰的格式化（支持情况要看环境）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. C++20 并发与线程：更容易“正确停止线程”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑（C++20 这一章的）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小练习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="小练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：Concepts 约束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：Ranges 管道
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-C%2B%2B23%E6%96%B0%E7%89%B9%E6%80%A7-%E6%A0%87%E5%87%86%E5%BA%93%E6%9B%B4%E5%A5%BD%E7%94%A8%E4%B8%8E%E8%AF%AD%E6%B3%95%E8%A1%A5%E5%BC%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-C++23新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-C%2B%2B11%E5%88%B023-%E6%A0%87%E5%87%86%E6%BC%94%E8%BF%9B%E8%B7%AF%E7%BA%BF%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15-C++11到23演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-CMake%E5%85%A5%E9%97%A8-%E4%BB%8E%E5%8D%95%E6%96%87%E4%BB%B6%E5%88%B0%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16-CMake入门
   
 
     

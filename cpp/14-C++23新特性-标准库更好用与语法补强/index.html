@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../13-C%2B%2B20%E6%96%B0%E7%89%B9%E6%80%A7-ConceptsRangesCoroutinesModules/">
+      
+      
+        <link rel="next" href="../15-C%2B%2B11%E5%88%B023-%E6%A0%87%E5%87%86%E6%BC%94%E8%BF%9B%E8%B7%AF%E7%BA%BF%E5%9B%BE/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>14-C++23 新特性：标准库更好用与语法补强（入门） - QrCraft 开发文档</title>
+        <title>14-C++23新特性 - QrCraft 开发文档</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14-C++23 新特性：标准库更好用与语法补强（入门）
+              14-C++23新特性
             
           </span>
         </div>
@@ -226,10 +230,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
           
   
@@ -346,26 +352,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -383,7 +394,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -745,6 +756,470 @@
     
   
     12-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-C%2B%2B20%E6%96%B0%E7%89%B9%E6%80%A7-ConceptsRangesCoroutinesModules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-C++20新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-C++23新特性
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-C++23新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先决知识（建议）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 先给结论：C++23 的关键词是“补齐与打磨”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. std::expected：把“错误”变成返回值的一部分
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. std::expected：把“错误”变成返回值的一部分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 基本用法：要么值，要么错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 什么时候用 expected，什么时候用异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stdrangesto-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. std::ranges::to：把 view 的结果一键收集成容器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-stdprint-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. std::print：更顺手的输出（搭配 format）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-stringcontains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. string::contains：判断子串更直觉
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ranges-viewszip-enumeratec23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 新的 Ranges views：zip / enumerate（C++23）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 新的 Ranges views：zip / enumerate（C++23）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-viewsenumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 views::enumerate：遍历时同时拿下标与元素
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-viewszip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 views::zip：并行遍历两个序列
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. C++23 的语法补强（挑最常见的讲）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. C++23 的语法补强（挑最常见的讲）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-if-consteval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 if consteval：区分“编译期路径”和“运行期路径”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-deducing-this-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Deducing this（你会在写链式 API/值类别转发时遇到）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 其他值得知道的标准库小工具（C++23）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 其他值得知道的标准库小工具（C++23）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-stdto_underlying-enum-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 std::to_underlying：从 enum class 拿到底层整数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-stdbyteswap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 std::byteswap：字节序翻转（做协议/二进制时常用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-stdstacktrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 std::stacktrace：打印调用栈（支持情况依赖环境）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 这一章你该怎么用（现实建议）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小练习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="小练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：expected 的错误信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2rangesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：ranges::to 收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-C%2B%2B11%E5%88%B023-%E6%A0%87%E5%87%86%E6%BC%94%E8%BF%9B%E8%B7%AF%E7%BA%BF%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15-C++11到23演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-CMake%E5%85%A5%E9%97%A8-%E4%BB%8E%E5%8D%95%E6%96%87%E4%BB%B6%E5%88%B0%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16-CMake入门
   
 
     
