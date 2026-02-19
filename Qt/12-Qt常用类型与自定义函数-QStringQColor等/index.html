@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../05-Widget%E5%85%A5%E9%97%A8-%E7%AA%97%E5%8F%A3%E6%8C%89%E9%92%AE%E5%B8%83%E5%B1%80/">
+        <link rel="prev" href="../11-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9E%8B%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%85%B7/">
       
       
-        <link rel="next" href="../07-%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6-%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%AF%B9%E8%AF%9D%E6%A1%86/">
+        <link rel="next" href="../../qml/00-%E7%9B%AE%E5%BD%95/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>06-资源系统 - QtCraft 开发文档</title>
+        <title>12-常用类型 - QtCraft 开发文档</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#06-qrc" class="md-skip">
+        <a href="#12-qt-qstring-qcolor" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              06-资源系统
+              12-常用类型
             
           </span>
         </div>
@@ -1114,37 +1114,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    06-资源系统
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../06-%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F-qrc%E5%9B%BE%E7%89%87%E5%AD%97%E4%BD%93%E7%BF%BB%E8%AF%91/" class="md-nav__link">
         
   
   
@@ -1160,220 +1133,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目标
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        先决知识（可选）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 资源系统是什么：把素材打包进可执行文件
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-qrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. qrc 怎么用：三步
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. qrc 怎么用：三步">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 创建资源文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-qrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 往 qrc 里加文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 在代码里用 :/ 路径引用
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 字体打包与使用：不依赖用户电脑装没装
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 翻译（国际化）：让文本能切语言
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 翻译（国际化）：让文本能切语言">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 最小流程（概念版）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 运行时加载（最小代码）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见坑
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小练习
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="小练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-qrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 1：窗口图标来自 qrc
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 2：自定义字体标题
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小结
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1523,10 +1282,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../12-Qt%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0-QStringQColor%E7%AD%89/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-常用类型
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1542,6 +1328,265 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先决知识（可选）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-qt-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 先搞清楚一件事：Qt 不是“只给你 UI”，它给你一整套基础类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-qstring-stdstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. QString：为什么不用 std::string？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. QString：为什么不用 std::string？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-qstring-unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 QString 解决的核心问题：Unicode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-qstring-stdstring-qbytearray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 常见转换：QString / std::string / QByteArray
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-qcolor-rrggbb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. QColor：颜色不只是“一个 #RRGGBB 字符串”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. QColor：颜色不只是“一个 #RRGGBB 字符串”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-qcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 QColor 是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-qcolor-qpalette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 QColor 和 QPalette 的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-qt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 自定义函数怎么写才像 Qt：参数传法比你想的重要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 自定义函数怎么写才像 Qt：参数传法比你想的重要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 大原则：能不复制就不复制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-qstringqcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 两个实战：用 QString/QColor 写出“可复用的小函数”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 两个实战：用 QString/QColor 写出“可复用的小函数”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-aqstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 例子 A：把用户输入规范化（QString）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-bqcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 例子 B：把颜色“变暗一点”（QColor）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小练习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="小练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1qstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：生成显示名（QString）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2qcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：颜色透明度工具（QColor）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1918,10 +1963,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-qt-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 资源系统是什么：把素材打包进可执行文件
+        1. 先搞清楚一件事：Qt 不是“只给你 UI”，它给你一整套基础类型
       
     </span>
   </a>
@@ -1929,22 +1974,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-qrc" class="md-nav__link">
+  <a href="#2-qstring-stdstring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. qrc 怎么用：三步
+        2. QString：为什么不用 std::string？
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. qrc 怎么用：三步">
+    <nav class="md-nav" aria-label="2. QString：为什么不用 std::string？">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-qstring-unicode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 创建资源文件
+        2.1 QString 解决的核心问题：Unicode
       
     </span>
   </a>
@@ -1952,21 +1997,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-qrc" class="md-nav__link">
+  <a href="#22-qstring-stdstring-qbytearray" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 往 qrc 里加文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 在代码里用 :/ 路径引用
+        2.2 常见转换：QString / std::string / QByteArray
       
     </span>
   </a>
@@ -1979,33 +2013,89 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-qcolor-rrggbb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 字体打包与使用：不依赖用户电脑装没装
+        3. QColor：颜色不只是“一个 #RRGGBB 字符串”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. QColor：颜色不只是“一个 #RRGGBB 字符串”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-qcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 QColor 是什么
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#32-qcolor-qpalette" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 翻译（国际化）：让文本能切语言
+        3.2 QColor 和 QPalette 的区别
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. 翻译（国际化）：让文本能切语言">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-qt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 自定义函数怎么写才像 Qt：参数传法比你想的重要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 自定义函数怎么写才像 Qt：参数传法比你想的重要">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#41" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 最小流程（概念版）
+        4.1 大原则：能不复制就不复制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-qstringqcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 两个实战：用 QString/QColor 写出“可复用的小函数”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 两个实战：用 QString/QColor 写出“可复用的小函数”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-aqstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 例子 A：把用户输入规范化（QString）
       
     </span>
   </a>
@@ -2013,10 +2103,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
+  <a href="#52-bqcolor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 运行时加载（最小代码）
+        5.2 例子 B：把颜色“变暗一点”（QColor）
       
     </span>
   </a>
@@ -2052,10 +2142,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-qrc" class="md-nav__link">
+  <a href="#1qstring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        练习 1：窗口图标来自 qrc
+        练习 1：生成显示名（QString）
       
     </span>
   </a>
@@ -2063,10 +2153,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2qcolor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        练习 2：自定义字体标题
+        练习 2：颜色透明度工具（QColor）
       
     </span>
   </a>
@@ -2106,151 +2196,181 @@
 
 
 
-<h1 id="06-qrc">06-资源系统：qrc 图片、字体、翻译<a class="headerlink" href="#06-qrc" title="Permanent link">&para;</a></h1>
+<h1 id="12-qt-qstring-qcolor">12-Qt 常用类型与自定义函数：QString / QColor 等<a class="headerlink" href="#12-qt-qstring-qcolor" title="Permanent link">&para;</a></h1>
 <p>目录页：见 <a href="../00-%E7%9B%AE%E5%BD%95/">Qt 教程目录</a></p>
 <h2 id="_1">目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>理解 <code>.qrc</code> 解决了什么：资源跟着程序走，不怕发布丢文件</li>
-<li>会把图片、字体加入资源，并在代码里正确引用 <code>:/...</code></li>
-<li>知道翻译（.ts/.qm）的大概流程，能做出最小“中英切换”</li>
+<li>搞清楚“为什么 Qt 有自己的类型”：QString、QColor、QByteArray…</li>
+<li>学会写“像 Qt 一样好用”的自定义函数：参数怎么传、返回什么、怎么少踩坑</li>
+<li>用两个最常见的例子（QString/QColor）把直觉建立起来</li>
 </ul>
 <h2 id="_2">先决知识（可选）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>会写最简单的 Widgets 界面（见 05 章）</li>
+<li>会写基本的 C++ 函数与引用（如果你没学过引用，把它理解成“不给对象复制一份，而是借用原件”）</li>
 </ul>
 <hr />
-<h2 id="1">1. 资源系统是什么：把素材打包进可执行文件<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h2 id="1-qt-ui">1. 先搞清楚一件事：Qt 不是“只给你 UI”，它给你一整套基础类型<a class="headerlink" href="#1-qt-ui" title="Permanent link">&para;</a></h2>
+<p>你写 Qt 程序时会很快遇到这些名字：
+- <code>QString</code>：字符串
+- <code>QColor</code>：颜色
+- <code>QByteArray</code>：字节数组（常用于网络/文件/二进制数据）
+- <code>QDateTime</code>：时间
+- <code>QUrl</code>：URL</p>
+<p>它们的共同点：</p>
 <ul>
-<li>专业名称：Qt Resource System（Qt 资源系统）</li>
-<li>类比：旅行时把衣服装进箱子，出门后不需要再去原衣柜拿</li>
-<li>作用：图片/图标/字体/翻译文件跟着程序走，路径统一、发布更稳</li>
-<li>规则/坑点：资源路径是 <code>:/...</code>，不是磁盘路径；只有进了 <code>.qrc</code> 才能用 <code>:/...</code></li>
+<li>专业名称：Qt Core Types（Qt 核心类型）</li>
+<li>类比：Qt 自带的“通用零件箱”。UI 只是外壳，里面很多地方都用这些零件</li>
+<li>作用：跨平台一致、功能完整、和 Qt 的信号槽/属性系统更契合</li>
+<li>规则/坑点：同一个“概念”可能既有 C++ 标准库版本（比如 <code>std::string</code>），也有 Qt 版本（比如 <code>QString</code>），你要知道在 Qt 生态里什么时候用哪个</li>
 </ul>
 <hr />
-<h2 id="2-qrc">2. qrc 怎么用：三步<a class="headerlink" href="#2-qrc" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 创建资源文件<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p>在 Qt Creator 里：
-- Add New... → Qt → Qt Resource File（会生成一个 <code>.qrc</code>）</p>
-<h3 id="22-qrc">2.2 往 qrc 里加文件<a class="headerlink" href="#22-qrc" title="Permanent link">&para;</a></h3>
-<p>把你的 <code>logo.png</code>、<code>icon.svg</code>、<code>font.ttf</code> 等加入 <code>.qrc</code>。</p>
-<p>你会在 <code>.qrc</code> 里看到类似结构（示意）：
-- prefix：资源前缀（像目录）
-- files：被打包的文件列表</p>
-<h3 id="23">2.3 在代码里用 <code>:/</code> 路径引用<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>比如图片：</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QLabel&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QPixmap&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">auto</span><span class="w"> </span><span class="o">*</span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QLabel</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">label</span><span class="o">-&gt;</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;:/images/logo.png&quot;</span><span class="p">));</span>
-</span></code></pre></div>
-<p>比如窗口图标：</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QIcon&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QWidget&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">QWidget</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">w</span><span class="p">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s">&quot;:/icons/app.png&quot;</span><span class="p">));</span>
-</span></code></pre></div>
-<hr />
-<h2 id="3">3. 字体打包与使用：不依赖用户电脑装没装<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h2 id="2-qstring-stdstring">2. QString：为什么不用 std::string？<a class="headerlink" href="#2-qstring-stdstring" title="Permanent link">&para;</a></h2>
+<h3 id="21-qstring-unicode">2.1 QString 解决的核心问题：Unicode<a class="headerlink" href="#21-qstring-unicode" title="Permanent link">&para;</a></h3>
 <ul>
-<li>专业名称：QFontDatabase（字体数据库）</li>
-<li>类比：把字体文件“注册进系统的临时清单”，你才能用字体名去选它</li>
-<li>作用：发布时字体不缺失，跨机器一致</li>
-<li>规则/坑点：先 <code>addApplicationFont</code> 再 <code>setFont</code>；加载失败要能退回默认字体</li>
+<li>专业名称：Unicode（统一字符编码）/ UTF-8（常见编码格式）</li>
+<li>类比：同一段文字有很多语言（中文、日文、emoji），要用一套统一规则才能稳定保存和显示</li>
+<li>作用：Qt UI 几乎所有文本都要正确显示多语言，所以 Qt 把“字符串”做成了一等公民</li>
+<li>规则/坑点：<code>std::string</code> 本质是“字节容器”，它不关心里面是不是 UTF-8；而 Qt 的很多 API 直接使用 <code>QString</code></li>
 </ul>
-<p>最小用法（假设你已把 <code>fonts/MyFont.ttf</code> 加进 qrc）：</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QFontDatabase&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QLabel&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QFontDatabase</span><span class="o">::</span><span class="n">addApplicationFont</span><span class="p">(</span><span class="s">&quot;:/fonts/MyFont.ttf&quot;</span><span class="p">);</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">QString</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">QFontDatabase</span><span class="o">::</span><span class="n">applicationFontFamilies</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">QLabel</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">family</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">family</span><span class="p">);</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">setPointSize</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">label</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">label</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<p>直觉结论（新手先记住这个就够）：
+- <strong>跟 Qt UI/属性/翻译相关的文本，用 <code>QString</code></strong>
+- <strong>跟纯 C++、纯字节处理相关的，用 <code>std::string</code> 或 <code>QByteArray</code></strong></p>
+<h3 id="22-qstring-stdstring-qbytearray">2.2 常见转换：QString / std::string / QByteArray<a class="headerlink" href="#22-qstring-stdstring-qbytearray" title="Permanent link">&para;</a></h3>
+<p>你会经常遇到三者互转，最常用的写法是：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QString&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QByteArray&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">QString</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;qtcraft&quot;</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">QByteArray</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">toUtf8</span><span class="p">();</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="p">.</span><span class="n">toStdString</span><span class="p">();</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">QString</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
 </span></code></pre></div>
+<p>你可以把它理解成：
+- <code>QString</code>：适合“文本”
+- <code>QByteArray</code>：适合“字节”
+- <code>std::string</code>：也可以装字节，但在 Qt 世界里，很多 API 更直接吃 <code>QString/QByteArray</code></p>
 <hr />
-<h2 id="4">4. 翻译（国际化）：让文本能切语言<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h2 id="3-qcolor-rrggbb">3. QColor：颜色不只是“一个 #RRGGBB 字符串”<a class="headerlink" href="#3-qcolor-rrggbb" title="Permanent link">&para;</a></h2>
+<h3 id="31-qcolor">3.1 QColor 是什么<a class="headerlink" href="#31-qcolor" title="Permanent link">&para;</a></h3>
 <ul>
-<li>专业名称：Internationalization（i18n，国际化） / Localization（l10n，本地化）</li>
-<li>类比：同一本书的不同语言版本，内容一样但文字不同</li>
-<li>作用：同一套程序支持中文/英文等多语言</li>
-<li>规则/坑点：翻译是“运行时加载”，不是编译时写死；要用 <code>tr()</code> 标记可翻译文本</li>
+<li>专业名称：QColor（颜色类型）</li>
+<li>类比：一个“颜色小盒子”，里面既能装 RGB，也能装透明度（alpha），还能装 HSL 等色彩空间</li>
+<li>作用：你在设置控件颜色、绘制、主题色时，最常用的就是它</li>
+<li>规则/坑点：颜色经常带透明度；只用 <code>"#RRGGBB"</code> 容易忽略 alpha</li>
 </ul>
-<h3 id="41">4.1 最小流程（概念版）<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<ol>
-<li>在代码里把需要翻译的字符串写成 <code>tr("...")</code></li>
-<li>用工具从源码里提取出 <code>.ts</code>（翻译源文件）</li>
-<li>在 Qt Linguist 里把 <code>.ts</code> 翻译成目标语言</li>
-<li>把 <code>.ts</code> 编译成 <code>.qm</code>（运行时加载的二进制翻译包）</li>
-<li>程序启动时用 <code>QTranslator</code> 加载 <code>.qm</code></li>
-</ol>
-<h3 id="42">4.2 运行时加载（最小代码）<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<p>假设你把 <code>i18n/app_zh_CN.qm</code> 加进 qrc：</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QTranslator&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">QApplication</span><span class="w"> </span><span class="n">app</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">QTranslator</span><span class="w"> </span><span class="n">tr</span><span class="p">;</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">tr</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;:/i18n/app_zh_CN.qm&quot;</span><span class="p">);</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">app</span><span class="p">.</span><span class="n">installTranslator</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tr</span><span class="p">);</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+<p>最常见的创建方式：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QColor&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">QColor</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="s">&quot;#4c8bf5&quot;</span><span class="p">);</span><span class="w">              </span><span class="c1">// 从 #RRGGBB 解析</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">QColor</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w"> </span><span class="mi">245</span><span class="p">);</span><span class="w">           </span><span class="c1">// RGB</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">QColor</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="mi">76</span><span class="p">,</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w"> </span><span class="mi">245</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w">      </span><span class="c1">// RGBA，最后一个是 alpha(0~255)</span>
 </span></code></pre></div>
+<h3 id="32-qcolor-qpalette">3.2 QColor 和 QPalette 的区别<a class="headerlink" href="#32-qcolor-qpalette" title="Permanent link">&para;</a></h3>
+<p>你会看到另一个东西：<code>QPalette</code>。</p>
+<ul>
+<li>QColor：一个具体颜色值</li>
+<li>QPalette：一套“角色颜色表”（按钮背景、文本颜色、窗口背景等不同角色各用什么颜色）</li>
+</ul>
+<p>类比：
+- QColor 是“单瓶颜料”
+- QPalette 是“整套调色盘规则”</p>
+<p>新手结论：
+- 想给某个地方指定具体颜色，用 QColor
+- 想做主题（整体风格），后面再了解 QPalette（不必急）</p>
+<hr />
+<h2 id="4-qt">4. 自定义函数怎么写才像 Qt：参数传法比你想的重要<a class="headerlink" href="#4-qt" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 大原则：能不复制就不复制<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>Qt 的很多类型（例如 <code>QString</code>）拷贝很“便宜”，但你写函数时仍然要养成好习惯：</p>
+<ul>
+<li>输入参数：优先 <code>const T&amp;</code>（只读引用）</li>
+<li>返回值：直接按值返回（让编译器优化/移动语义发挥作用）</li>
+</ul>
+<p>类比：
+- <code>const T&amp;</code>：借用原件看一眼，不复印
+- 按值返回：把结果交出去，交付时“快递公司”会尽量优化（编译器优化）</p>
+<hr />
+<h2 id="5-qstringqcolor">5. 两个实战：用 QString/QColor 写出“可复用的小函数”<a class="headerlink" href="#5-qstringqcolor" title="Permanent link">&para;</a></h2>
+<h3 id="51-aqstring">5.1 例子 A：把用户输入规范化（QString）<a class="headerlink" href="#51-aqstring" title="Permanent link">&para;</a></h3>
+<p>需求：
+- 用户输入可能有空格、大小写不统一
+- 你想把它规范成 “首字母大写，其余小写”</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QString&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">QString</span><span class="w"> </span><span class="nf">normalizeName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">raw</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">QString</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw</span><span class="p">.</span><span class="n">trimmed</span><span class="p">();</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">QString</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">toLower</span><span class="p">();</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">lower</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">toUpper</span><span class="p">();</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">lower</span><span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>你要注意的点：
+- <code>trimmed()</code> 会去掉两端空白
+- 处理空字符串要提前返回</p>
+<h3 id="52-bqcolor">5.2 例子 B：把颜色“变暗一点”（QColor）<a class="headerlink" href="#52-bqcolor" title="Permanent link">&para;</a></h3>
+<p>需求：
+- 做按钮按下态：颜色比正常态暗一点</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QColor&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">QColor</span><span class="w"> </span><span class="nf">darken</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">percent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">percent</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">percent</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">darker</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">percent</span><span class="p">);</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>你可以把 <code>darker(120)</code> 理解成：
+- 把颜色“压暗”到原来的 120%（数值越大越暗）</p>
 <hr />
 <h2 id="_3">常见坑<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>错误：用磁盘路径读图片（例如 <code>C:\Users\...\a.png</code>）<br />
-  结果：发布到别人电脑就找不到<br />
-  正确：把资源放进 <code>.qrc</code>，用 <code>:/...</code>（见第 2 节）</p>
+<p>错误：用 <code>std::string</code> 直接当 UI 文本，不处理编码<br />
+  结果：中文乱码、emoji 出问题<br />
+  正确：UI 文本统一用 <code>QString</code>，需要字节再转 <code>toUtf8()</code>（见 2.2）</p>
 </li>
 <li>
-<p>错误：字体加载后直接写一个“字体文件名”当 family 用<br />
-  结果：字体不生效<br />
-  正确：用 <code>QFontDatabase::applicationFontFamilies</code> 拿到 family 再设置（见第 3 节）</p>
+<p>错误：用字符串拼颜色到处传（<code>"#RRGGBB"</code>）<br />
+  结果：透明度、色彩空间、合法性检查都很难做<br />
+  正确：用 <code>QColor</code> 在类型层面表达“这是颜色”（见 3.1）</p>
 </li>
 <li>
-<p>错误：字符串没用 <code>tr()</code>，翻译工具提取不到<br />
-  结果：翻译文件里没有这句<br />
-  正确：界面文本统一用 <code>tr()</code> 标记</p>
+<p>错误：函数参数写成按值传 <code>QString s</code>，然后在热路径里频繁调用<br />
+  结果：不必要的拷贝开销（虽然 Qt 很优化，但这习惯不利于写大项目）<br />
+  正确：输入参数用 <code>const QString&amp;</code>（见 4.1）</p>
 </li>
 </ul>
 <hr />
 <h2 id="_4">小练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1-qrc">练习 1：窗口图标来自 qrc<a class="headerlink" href="#1-qrc" title="Permanent link">&para;</a></h3>
+<h3 id="1qstring">练习 1：生成显示名（QString）<a class="headerlink" href="#1qstring" title="Permanent link">&para;</a></h3>
 <ul>
-<li>题目：给你的窗口设置一个图标</li>
-<li>输入/输出：窗口左上角有图标</li>
-<li>约束：图标必须来自 <code>:/...</code></li>
-<li>提示：<code>setWindowIcon(QIcon(":/icons/app.png"))</code></li>
-<li>目标：练 qrc 引用路径</li>
+<li>题目：输入 firstName 和 lastName，返回 <code>"Last, First"</code> 的显示名</li>
+<li>输入/输出：返回一个 QString</li>
+<li>约束：必须处理空字符串（有一边空就只返回另一边）</li>
+<li>提示：用 <code>trimmed()</code>、<code>isEmpty()</code></li>
+<li>目标：练字符串处理与边界情况</li>
 </ul>
-<h3 id="2">练习 2：自定义字体标题<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h3 id="2qcolor">练习 2：颜色透明度工具（QColor）<a class="headerlink" href="#2qcolor" title="Permanent link">&para;</a></h3>
 <ul>
-<li>题目：把一个 ttf 字体加入 qrc，并用于显示一个大标题</li>
-<li>输入/输出：标题字体和系统默认明显不同</li>
-<li>约束：字体必须通过 <code>addApplicationFont</code> 加载</li>
-<li>提示：family 可能不止一个，用 <code>value(0)</code> 先取第一个</li>
-<li>目标：练字体打包与使用</li>
+<li>题目：写一个函数 <code>withAlpha(color, alpha)</code> 返回一个新颜色</li>
+<li>输入/输出：返回 QColor</li>
+<li>约束：alpha 范围 0~255，超出要裁剪</li>
+<li>提示：用 <code>setAlpha(int)</code></li>
+<li>目标：练“颜色是类型，不是字符串”</li>
 </ul>
 <hr />
 <h2 id="_5">小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>.qrc</code> 把资源打包进程序，代码里用 <code>:/...</code> 引用更稳定</li>
-<li>字体用 <code>QFontDatabase</code> 注册后再用 family 设置</li>
-<li>翻译的关键是：<code>tr()</code> 标记 + <code>.qm</code> 运行时加载</li>
+<li>Qt 有自己的核心类型，是为了跨平台一致、和 Qt 生态更顺</li>
+<li><code>QString</code> 面向文本（Unicode），<code>QByteArray</code> 面向字节；UI 文本优先用 <code>QString</code></li>
+<li><code>QColor</code> 表达颜色（含透明度），比字符串更可靠</li>
+<li>自定义函数：输入用 <code>const T&amp;</code>，输出按值返回，写起来像 Qt 一样稳</li>
 </ul>
-<p>下一篇：见 <a href="../07-%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6-%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%AF%B9%E8%AF%9D%E6%A1%86/">07-常用控件-输入列表对话框</a></p>
+<p>下一篇：你可以回到目录继续扩展主题（例如 QDateTime/QUrl/QVariant 这些也很常用）。</p>
 
 
 
