@@ -1,18 +1,10 @@
-.online-compile-container {
-  position: relative;
+.online-compile-header-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.online-compile-button {
-  position: absolute;
-  top: 0.4rem;
-  right: 3rem;
-  z-index: 3;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.7rem;
-  line-height: 1.1;
-  border-radius: 0.4rem;
-}
-
-.online-compile-button--no-main {
-  opacity: 0.85;
+.online-compile-header-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
