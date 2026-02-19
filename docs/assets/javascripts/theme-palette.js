@@ -6,7 +6,7 @@
       id: "md3",
       name: "MD3 默认",
       primary: "#6750A4",
-      accent: "#EFB8C8",
+      accent: "#9C8DC4",
     },
     {
       id: "teal_purple",
@@ -120,6 +120,14 @@
     style.textContent = lines.join("\n");
   }
 
+  function applyDefaultAccentFromPrimary() {
+    const p = getCssVar("--md-primary-fg-color");
+    const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
+    if (!pHex) return;
+    const aHex = lightenHex(pHex, 0.35) || pHex;
+    applyColors(pHex, aHex);
+  }
+
   function createHeaderButton() {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -166,7 +174,10 @@
       const p = getCssVar("--md-primary-fg-color");
       const a = getCssVar("--md-accent-fg-color");
       const pHex = rgbStringToHex(p) || (isHexColor(p) ? p : null);
-      const aHex = rgbStringToHex(a) || (isHexColor(a) ? a : null);
+      let aHex = rgbStringToHex(a) || (isHexColor(a) ? a : null);
+
+      if (pHex && (!aHex || aHex.toUpperCase() === pHex.toUpperCase())) aHex = lightenHex(pHex, 0.35) || pHex;
+
       if (pHex) primaryInput.value = pHex;
       if (aHex) accentInput.value = aHex;
     }
@@ -239,7 +250,7 @@
     accentText.textContent = "强调色";
     const accentInput = document.createElement("input");
     accentInput.type = "color";
-    accentInput.value = "#EFB8C8";
+    accentInput.value = "#9C8DC4";
     accentWrap.appendChild(accentText);
     accentWrap.appendChild(accentInput);
 
@@ -317,7 +328,7 @@
     });
 
     resetBtn.addEventListener("click", () => {
-      clearStyleTag();
+      applyDefaultAccentFromPrimary();
       requestAnimationFrame(() => {
         syncInputsToComputed(primaryInput, accentInput);
       });
@@ -327,6 +338,7 @@
   }
 
   function mount() {
+    applyDefaultAccentFromPrimary();
     if (document.querySelector(".theme-palette-overlay")) return;
     const { overlay, open } = createDialog();
     document.body.appendChild(overlay);
