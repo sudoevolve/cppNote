@@ -64,10 +64,13 @@
   function createHeaderButton() {
     const a = document.createElement("a");
     a.href = "https://godbolt.org/";
-    a.className = "md-button online-compile-header-button";
+    a.className = "md-header__button md-icon online-compile-header-button";
     a.title = "在线编译（打开 Compiler Explorer）";
     a.setAttribute("aria-label", a.title);
-    a.textContent = "在线编译";
+    a.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M10 17l6-5-6-5v10ZM19 19H5V5h14v14Zm0-16H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/>' +
+      "</svg>";
 
     a.addEventListener("click", (e) => {
       e.preventDefault();
