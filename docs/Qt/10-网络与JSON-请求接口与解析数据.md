@@ -172,4 +172,4 @@ QString parseName() {
 - QNetworkAccessManager 管请求；QNetworkReply 带响应
 - JSON 用 QJsonDocument 解析，取字段要做默认值和类型判断
 
-下一篇：见 [11-QML入门-快速搭界面（不使用QtQuick.Controls）](11-QML入门-快速搭界面（不使用QtQuick.Controls）.md)
+下一篇：见 [11-综合练习-做一个小型桌面工具](11-综合练习-做一个小型桌面工具.md)

@@ -1,4 +1,4 @@
-# 13-Qt 常用类型与自定义函数：QString / QColor 等
+# 12-Qt 常用类型与自定义函数：QString / QColor 等
 
 目录页：见 [Qt 教程目录](00-目录.md)
 
@@ -210,3 +210,4 @@ QColor darken(const QColor& c, int percent) {
 - 自定义函数：输入用 `const T&`，输出按值返回，写起来像 Qt 一样稳
 
 下一篇：你可以回到目录继续扩展主题（例如 QDateTime/QUrl/QVariant 这些也很常用）。
+

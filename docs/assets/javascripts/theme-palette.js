@@ -257,15 +257,17 @@
       saveConfig({ primary, accent });
     }
 
+    panel.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
     overlay.addEventListener("click", (e) => {
-      const t = e.target;
-      if (!(t instanceof Node)) return;
-      if (t === overlay) closePanel();
-      if (t instanceof Element && t.closest(".theme-palette-close")) closePanel();
-    }, { capture: true });
+      if (e.target === overlay) closePanel();
+    });
 
     close.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
       closePanel();
     });
     document.addEventListener("keydown", (e) => {

@@ -76,3 +76,4 @@ SplitText {
 - 如果你看到“一片白”，最常见是两种原因：窗口背景是白色同时你把文字颜色也设成了白色；或者你没给组件任何尺寸/锚点导致容器为 0。建议先做最小排查：给 Window 加深色背景（或把 `color` 改黑），并给 SplitText 加 `anchors.centerIn: parent`。
 - 组件会在有明确 `width/height` 时自动裁剪，避免起始位移时超出区域；如果你希望溢出也可见，可以在外层包一层 Item 并关闭外层裁剪。
 - 本组件不使用 `QtQuick.Controls`。
+
