@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -1446,7 +1446,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件规范
+        组件库
       
     </span>
   </a>
@@ -1457,7 +1457,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件库
+        规划中（待补）
       
     </span>
   </a>
@@ -1536,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-MD3%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E8%89%B2%E4%BD%93%E7%B3%BB-%E7%94%A8Theme%E7%AE%A1%E7%90%86%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%9C%86%E8%A7%92/" class="md-nav__link">
+      <a href="../03-MD3主题与配色体系-用Theme管理颜色字体圆角.md" class="md-nav__link">
         
   
   
@@ -1564,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-%E6%8E%A5%E5%85%A5md3.Core%E7%BB%84%E4%BB%B6%E5%BA%93-%E4%BB%8E%E6%BA%90%E7%A0%81%E9%9B%86%E6%88%90%E5%88%B0QML%E5%AF%BC%E5%85%A5/" class="md-nav__link">
+      <a href="../04-接入md3.Core组件库-从源码集成到QML导入.md" class="md-nav__link">
         
   
   
@@ -1752,7 +1752,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件规范
+        组件库
       
     </span>
   </a>
@@ -1763,7 +1763,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件库
+        规划中（待补）
       
     </span>
   </a>
@@ -1788,22 +1788,27 @@
 
 
 <h1 id="qml">QML 教程目录<a class="headerlink" href="#qml" title="Permanent link">&para;</a></h1>
-<p>按顺序学即可：先把“QML 的直觉”跑通，再看组件规范，最后按需取用组件库。</p>
+<p>按顺序学即可：先把“能跑起来 + QML 的直觉”打通，再学布局、组件化与动画，最后再做工程化与 C++ 交互。</p>
+<p>约束：本教程示例默认不使用 <code>QtQuick.Controls</code>（只用 <code>QtQuick</code> 基础元素自己搭 UI）。</p>
 <h2 id="qml_1">QML 入门<a class="headerlink" href="#qml_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../01-%E5%88%9B%E5%BB%BAQML%E9%A1%B9%E7%9B%AE-%E4%BB%8EQtCreator%E5%88%B0%E8%B7%91%E8%B5%B7%E6%9D%A5/">01-创建 QML 项目：从 Qt Creator 到跑起来</a></li>
 <li><a href="../02-QML%E5%85%A5%E9%97%A8-%E5%BF%AB%E9%80%9F%E6%90%AD%E7%95%8C%E9%9D%A2%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8QtQuick.Controls%EF%BC%89/">02-QML 入门：快速搭界面（不使用 QtQuick.Controls）</a></li>
-<li><a href="../03-MD3%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E8%89%B2%E4%BD%93%E7%B3%BB-%E7%94%A8Theme%E7%AE%A1%E7%90%86%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%9C%86%E8%A7%92/">03-MD3 主题与配色体系：用 Theme 管理颜色、字体、圆角</a></li>
-<li><a href="../04-%E6%8E%A5%E5%85%A5md3.Core%E7%BB%84%E4%BB%B6%E5%BA%93-%E4%BB%8E%E6%BA%90%E7%A0%81%E9%9B%86%E6%88%90%E5%88%B0QML%E5%AF%BC%E5%85%A5/">04-接入 md3.Core 组件库：从源码集成到 QML import</a></li>
+<li><a href="../03-QML%E5%B8%83%E5%B1%80%E4%B8%8E%E5%AE%9A%E4%BD%8D-anchors-positioners-%E5%B0%BA%E5%AF%B8%E7%B3%BB%E7%BB%9F/">03-QML 布局与定位：anchors / positioners / 尺寸系统</a></li>
+<li><a href="../04-QML%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8A%A8%E7%94%BB-states-transitions-behavior/">04-QML 状态与动画：states / transitions / Behavior</a></li>
+<li><a href="../05-QML%E7%BB%84%E4%BB%B6%E5%8C%96%E8%A7%84%E8%8C%83-%E5%B1%9E%E6%80%A7%E4%BF%A1%E5%8F%B7%E6%96%B9%E6%B3%95-%E5%8F%AF%E5%A4%8D%E7%94%A8%E5%86%99%E6%B3%95/">05-QML 组件化规范：属性/信号/方法与可复用写法</a></li>
+<li><a href="../06-QML%E4%B8%8EC%2B%2B%E4%BA%A4%E4%BA%92-%E6%B3%A8%E5%86%8C%E7%B1%BB%E5%9E%8B-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B1%9E%E6%80%A7-%E4%BF%A1%E5%8F%B7%E6%A7%BD/">06-QML 与 C++ 交互：注册类型/上下文属性/信号槽</a></li>
+<li><a href="../07-%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E8%89%B2%E4%BD%93%E7%B3%BB-Theme%E7%AE%A1%E7%90%86%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%9C%86%E8%A7%92/">07-主题与配色体系：用 Theme 管理颜色、字体、圆角</a></li>
+<li><a href="../08-%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%BB%84%E7%BB%87-qrc-qmldir-QMLModule-CMake/">08-资源与工程组织：qrc、qmldir、QML module、CMake</a></li>
+<li><a href="../09-%E6%80%A7%E8%83%BD%E4%B8%8E%E8%B0%83%E8%AF%95-Binding%E5%BE%AA%E7%8E%AF-Profiler-SceneGraph/">09-性能与调试：Binding 循环、过度创建、Profiler/Scene Graph</a></li>
+<li><a href="../10-QML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7%E9%80%9F%E6%9F%A5/">10-QML 常用元素与属性速查</a></li>
 </ul>
-<h2 id="_1">组件规范<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="00-QML单页组件规范.md">QML 单页小组件规范（qtcraft）</a></li>
-</ul>
-<h2 id="_2">组件库<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">组件库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../components/SplitText/SplitText/">SplitText</a></li>
 </ul>
+<h2 id="_2">规划中（待补）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>已补齐到第 07~10 章。</p>
 
 
 

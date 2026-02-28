@@ -11,10 +11,6 @@
       
       
       
-        <link rel="prev" href="../01-%E5%88%9B%E5%BB%BAQML%E9%A1%B9%E7%9B%AE-%E4%BB%8EQtCreator%E5%88%B0%E8%B7%91%E8%B5%B7%E6%9D%A5/">
-      
-      
-        <link rel="next" href="../components/SplitText/SplitText/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>02-QML入门 - QtCraft 开发文档</title>
+        <title>08-资源与工程组织：qrc、qmldir、QML module、CMake - QtCraft 开发文档</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#02-qml-qtquickcontrols" class="md-skip">
+        <a href="#08-qrcqmldirqml-modulecmake" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02-QML入门
+              08-资源与工程组织：qrc、qmldir、QML module、CMake
             
           </span>
         </div>
@@ -272,12 +268,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
           
   
@@ -1312,31 +1306,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -1354,7 +1343,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1425,37 +1414,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    02-QML入门
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02-QML%E5%85%A5%E9%97%A8-%E5%BF%AB%E9%80%9F%E6%90%AD%E7%95%8C%E9%9D%A2%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8QtQuick.Controls%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1471,164 +1433,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目标
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        先决知识（可选）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-qml-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. QML 是什么：像“搭积木写 UI 的描述语言”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-qml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 最小 QML：一个窗口 + 一块可点击区域
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-binding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 属性绑定（binding）：让值“自动跟着变”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 状态与动画：让 UI “动起来”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 写一个不依赖 Controls 的“按钮组件”（可复用）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见坑
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小练习
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="小练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 1：做一个计数器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2repeater" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 2：做一个列表（Repeater）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小结
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1731,20 +1535,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
             
   
   
@@ -1854,73 +1655,73 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#1-qml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. QML 文件是怎么被找到的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-qrc-qml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. qrc：把 QML/图片资源编译进程序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-qmldir-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. qmldir：给“文件夹”定义一个可 import 的模块（传统方式）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-qt-6-cmake-qml-moduleqt_add_qml_module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Qt 6 + CMake 的主流方式：QML module（qt_add_qml_module）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. import 路径与“同目录可用”的误解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 推荐的目录结构（不强制）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        先决知识（可选）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-qml-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. QML 是什么：像“搭积木写 UI 的描述语言”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-qml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 最小 QML：一个窗口 + 一块可点击区域
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-binding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 属性绑定（binding）：让值“自动跟着变”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 状态与动画：让 UI “动起来”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 写一个不依赖 Controls 的“按钮组件”（可复用）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         常见坑
@@ -1931,46 +1732,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小练习
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="小练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 1：做一个计数器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2repeater" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习 2：做一个列表（Repeater）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         小结
@@ -1997,184 +1759,112 @@
 
 
 
-<h1 id="02-qml-qtquickcontrols">02-QML 入门：快速搭界面（不使用 QtQuick.Controls）<a class="headerlink" href="#02-qml-qtquickcontrols" title="Permanent link">&para;</a></h1>
+<h1 id="08-qrcqmldirqml-modulecmake">08-资源与工程组织：qrc、qmldir、QML module、CMake<a class="headerlink" href="#08-qrcqmldirqml-modulecmake" title="Permanent link">&para;</a></h1>
 <p>目录页：见 <a href="../00-%E7%9B%AE%E5%BD%95/">QML 教程目录</a></p>
 <h2 id="_1">目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>用 QML 写出一个最小界面：矩形、文字、点击交互</li>
-<li>理解 QML 的核心直觉：属性绑定（binding）+ 声明式布局</li>
-<li>在不使用 <code>QtQuick.Controls</code> 的前提下，做一个可复用的小组件</li>
-</ul>
-<h2 id="_2">先决知识（可选）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>你已经能跑起来 QML 工程（见 QML 01 章）</li>
+<li>认识 QML 工程里“文件在哪、怎么被找到、怎么被打包”的基本规则</li>
+<li>理解 <code>qrc</code>、<code>qmldir</code>、QML module 的区别与组合方式</li>
+<li>知道 Qt 6 + CMake 下常见的 QML 集成方式（概念模板）</li>
 </ul>
 <hr />
-<h2 id="1-qml-ui">1. QML 是什么：像“搭积木写 UI 的描述语言”<a class="headerlink" href="#1-qml-ui" title="Permanent link">&para;</a></h2>
-<ul>
-<li>专业名称：QML（Qt Modeling Language）</li>
-<li>类比：你不是一行行告诉电脑“先画这个再画那个”，而是直接描述“界面长什么样”</li>
-<li>作用：开发 UI 更快，动画更顺，适合快速迭代</li>
-<li>规则/坑点：本教程明确禁止使用 <code>QtQuick.Controls</code>；我们用 <code>Rectangle/Text/MouseArea</code> 等基础元素自己搭</li>
-</ul>
-<hr />
-<h2 id="2-qml">2. 最小 QML：一个窗口 + 一块可点击区域<a class="headerlink" href="#2-qml" title="Permanent link">&para;</a></h2>
-<div class="language-qml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.15</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Window</span> <span class="mf">2.15</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">Window</span> <span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">width:</span> <span class="mi">360</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">height:</span> <span class="mi">240</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">visible:</span> <span class="kc">true</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">title:</span> <span class="s2">&quot;QML Demo&quot;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="nx">Rectangle</span> <span class="p">{</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">anchors.centerIn:</span> <span class="nx">parent</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="k">width:</span> <span class="mi">220</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">height:</span> <span class="mi">72</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">radius:</span> <span class="mi">12</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="k">color:</span> <span class="s2">&quot;#4c8bf5&quot;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="nx">Text</span> <span class="p">{</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>            <span class="k">anchors.centerIn:</span> <span class="nx">parent</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>            <span class="k">text:</span> <span class="s2">&quot;Click me&quot;</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="k">color:</span> <span class="s2">&quot;#ffffff&quot;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            <span class="k">font.pixelSize:</span> <span class="mi">20</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="p">}</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="nx">MouseArea</span> <span class="p">{</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>            <span class="k">anchors.fill:</span> <span class="nx">parent</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>            <span class="k">onClicked:</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">color</span> <span class="o">===</span> <span class="s2">&quot;#4c8bf5&quot;</span> <span class="o">?</span> <span class="s2">&quot;#7c4dff&quot;</span> <span class="o">:</span> <span class="s2">&quot;#4c8bf5&quot;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="p">}</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="p">}</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">}</span>
+<h2 id="1-qml">1. QML 文件是怎么被找到的<a class="headerlink" href="#1-qml" title="Permanent link">&para;</a></h2>
+<p>QML 引擎能加载 QML，通常来自三类来源：</p>
+<ol>
+<li><strong>资源系统（qrc）</strong>：编译进可执行文件（推荐用于发布）</li>
+<li><strong>文件系统路径</strong>：开发阶段便捷，但发布时要管理部署</li>
+<li><strong>QML module</strong>：通过 <code>import Xxx 1.0</code> 导入（工程化最强）</li>
+</ol>
+<p>当你写：</p>
+<div class="language-qml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">import</span> <span class="nx">MyApp</span> <span class="mf">1.0</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">MyType</span> <span class="p">{</span> <span class="p">}</span>
 </span></code></pre></div>
-<p>你要抓住两个直觉：
-- 你在写“树结构”：Window 里面有 Rectangle，Rectangle 里面有 Text、MouseArea
-- 属性就是 UI 的状态：<code>color</code> 变了，界面自然变</p>
+<p>背后就依赖“模块定义”和“类型可见性”。</p>
 <hr />
-<h2 id="3-binding">3. 属性绑定（binding）：让值“自动跟着变”<a class="headerlink" href="#3-binding" title="Permanent link">&para;</a></h2>
+<h2 id="2-qrc-qml">2. qrc：把 QML/图片资源编译进程序<a class="headerlink" href="#2-qrc-qml" title="Permanent link">&para;</a></h2>
+<p>优点：</p>
 <ul>
-<li>专业名称：Property Binding（属性绑定）</li>
-<li>类比：像“公式”。你写的是 <code>width: parent.width * 0.6</code>，以后 parent 变了，width 自动跟着算</li>
-<li>作用：少写手动更新代码，界面更稳定</li>
-<li>规则/坑点：绑定是表达式，不要在绑定属性上又手动赋值造成“断开绑定”</li>
+<li>发布简单：资源都在程序里</li>
+<li>路径稳定：<code>qrc:/...</code></li>
 </ul>
-<p>一个最小例子：</p>
-<div class="language-qml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">Rectangle</span> <span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">width:</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="mf">0.6</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">height:</span> <span class="nx">width</span> <span class="o">*</span> <span class="mf">0.3</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+<p>典型加载方式：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">engine</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="sa">u</span><span class="s">&quot;qrc:/main.qml&quot;</span><span class="n">_qs</span><span class="p">));</span>
+</span></code></pre></div>
+<p>QML 里引用图片：</p>
+<div class="language-qml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">Image</span> <span class="p">{</span> <span class="k">source:</span> <span class="s2">&quot;qrc:/assets/logo.png&quot;</span> <span class="p">}</span>
 </span></code></pre></div>
 <hr />
-<h2 id="4-ui">4. 状态与动画：让 UI “动起来”<a class="headerlink" href="#4-ui" title="Permanent link">&para;</a></h2>
-<p>你可以用最基础的 <code>Behavior</code> 给某个属性加过渡动画：</p>
-<div class="language-qml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">Rectangle</span> <span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="kd">id: box</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">width:</span> <span class="mi">220</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">height:</span> <span class="mi">72</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">radius:</span> <span class="mi">12</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">color:</span> <span class="nx">pressed</span> <span class="o">?</span> <span class="s2">&quot;#3b6fd0&quot;</span> <span class="o">:</span> <span class="s2">&quot;#4c8bf5&quot;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="nx">property</span> <span class="nx">bool</span> <span class="k">pressed:</span> <span class="kc">false</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="nx">Behavior</span> <span class="nx">on</span> <span class="nx">color</span> <span class="p">{</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="nx">ColorAnimation</span> <span class="p">{</span> <span class="k">duration:</span> <span class="mi">180</span> <span class="p">}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="p">}</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="nx">MouseArea</span> <span class="p">{</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="k">anchors.fill:</span> <span class="nx">parent</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">onPressed:</span> <span class="nx">box</span><span class="p">.</span><span class="nx">pressed</span> <span class="o">=</span> <span class="kc">true</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="k">onReleased:</span> <span class="nx">box</span><span class="p">.</span><span class="nx">pressed</span> <span class="o">=</span> <span class="kc">false</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="p">}</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
+<h2 id="3-qmldir-import">3. qmldir：给“文件夹”定义一个可 import 的模块（传统方式）<a class="headerlink" href="#3-qmldir-import" title="Permanent link">&para;</a></h2>
+<p><code>qmldir</code> 文件通常放在一个目录下，用来描述：</p>
+<ul>
+<li>模块名</li>
+<li>哪些 QML 类型由哪些文件提供</li>
+</ul>
+<p>概念例子（仅展示格式）：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>module MyWidgets
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>MyBadge 1.0 MyBadge.qml
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>SplitText 1.0 SplitText.qml
 </span></code></pre></div>
-<p>你可以把 Behavior 理解成：
-- 当 color 改变时，用动画去过渡，而不是瞬间跳变</p>
-<hr />
-<h2 id="5-controls">5. 写一个不依赖 Controls 的“按钮组件”（可复用）<a class="headerlink" href="#5-controls" title="Permanent link">&para;</a></h2>
-<p>你可以把一个 Rectangle + Text + MouseArea 封装成一个组件文件，例如 <code>SimpleButton.qml</code>：</p>
-<div class="language-qml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.15</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">Rectangle</span> <span class="p">{</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="kd">id: root</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">width:</span> <span class="mi">220</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">height:</span> <span class="mi">72</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">radius:</span> <span class="mi">12</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="nx">property</span> <span class="nx">string</span> <span class="k">text:</span> <span class="s2">&quot;Button&quot;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="nx">property</span> <span class="nx">color</span> <span class="k">textColor:</span> <span class="s2">&quot;#ffffff&quot;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="nx">property</span> <span class="nx">color</span> <span class="k">normalColor:</span> <span class="s2">&quot;#4c8bf5&quot;</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="nx">property</span> <span class="nx">color</span> <span class="k">pressedColor:</span> <span class="s2">&quot;#3b6fd0&quot;</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="nx">signal</span> <span class="nx">clicked</span><span class="p">()</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="k">color:</span> <span class="nx">area</span><span class="p">.</span><span class="nx">pressed</span> <span class="o">?</span> <span class="k">pressedColor :</span> <span class="nx">normalColor</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="nx">Behavior</span> <span class="nx">on</span> <span class="nx">color</span> <span class="p">{</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="nx">ColorAnimation</span> <span class="p">{</span> <span class="k">duration:</span> <span class="mi">160</span> <span class="p">}</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="p">}</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="nx">Text</span> <span class="p">{</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="k">anchors.centerIn:</span> <span class="nx">parent</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="k">text:</span> <span class="nx">root</span><span class="p">.</span><span class="nx">text</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="k">color:</span> <span class="nx">root</span><span class="p">.</span><span class="nx">textColor</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="k">font.pixelSize:</span> <span class="mi">20</span>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="p">}</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="nx">MouseArea</span> <span class="p">{</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        <span class="kd">id: area</span>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>        <span class="k">anchors.fill:</span> <span class="nx">parent</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>        <span class="k">onClicked:</span> <span class="nx">root</span><span class="p">.</span><span class="nx">clicked</span><span class="p">()</span>
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="p">}</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>使用时：</p>
-<div class="language-qml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">SimpleButton</span> <span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">text:</span> <span class="s2">&quot;OK&quot;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">onClicked:</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+<p>然后在 QML 里：</p>
+<div class="language-qml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">import</span> <span class="nx">MyWidgets</span> <span class="mf">1.0</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nx">MyBadge</span> <span class="p">{</span> <span class="p">}</span>
 </span></code></pre></div>
 <hr />
-<h2 id="_3">常见坑<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="4-qt-6-cmake-qml-moduleqt_add_qml_module">4. Qt 6 + CMake 的主流方式：QML module（qt_add_qml_module）<a class="headerlink" href="#4-qt-6-cmake-qml-moduleqt_add_qml_module" title="Permanent link">&para;</a></h2>
+<p>在 Qt 6 里更推荐用 QML module 的方式组织（能同时管 qrc、导入、类型注册等）。</p>
+<p>概念模板（示意，不保证与你工程的文件名一致）：</p>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">qt_add_qml_module</span><span class="p">(</span><span class="s">app</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="s">URI</span><span class="w"> </span><span class="s">MyApp</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="s">VERSION</span><span class="w"> </span><span class="s">1.0</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="s">QML_FILES</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="s">main.qml</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="s">components/Badge.qml</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="s">components/SplitText.qml</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="s">RESOURCES</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="s">assets/logo.png</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>这样你可以：</p>
 <ul>
-<li>
-<p>错误：以为 <code>MyButton {}</code> 会自动可用，但文件名不匹配/不在 import 路径<br />
-  结果：类型找不到或被当成属性组导致报错<br />
-  正确：组件文件名与类型名一致（<code>SimpleButton.qml</code> 对应 <code>SimpleButton</code>），并保证在 QML 可 import 的路径</p>
-</li>
-<li>
-<p>错误：在绑定属性上手动赋值<br />
-  结果：绑定被断开，后续不自动更新<br />
-  正确：要么一直用绑定表达式，要么改成由状态变量驱动（例如 <code>pressed</code>）</p>
-</li>
+<li>用 <code>import MyApp 1.0</code> 导入模块内类型</li>
+<li>同时把 QML/资源打包到 qrc（通常由工具链处理）</li>
 </ul>
 <hr />
-<h2 id="_4">小练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1">练习 1：做一个计数器<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h2 id="5-import">5. import 路径与“同目录可用”的误解<a class="headerlink" href="#5-import" title="Permanent link">&para;</a></h2>
+<p>很多初学者会以为：</p>
 <ul>
-<li>题目：一个 Text 显示 count，一个按钮点击 +1</li>
-<li>输入/输出：点击按钮 count 增加</li>
-<li>约束：禁止 QtQuick.Controls</li>
-<li>提示：用 <code>property int count: 0</code></li>
-<li>目标：练属性、绑定、点击事件</li>
+<li>“QML 文件放在项目里就能用”</li>
 </ul>
-<h3 id="2repeater">练习 2：做一个列表（Repeater）<a class="headerlink" href="#2repeater" title="Permanent link">&para;</a></h3>
+<p>实际上可用性取决于：</p>
 <ul>
-<li>题目：用 Repeater 把一组字符串显示成竖向列表</li>
-<li>输入/输出：显示 N 行文本</li>
-<li>约束：禁止 QtQuick.Controls</li>
-<li>提示：用 Column + Repeater + Text</li>
-<li>目标：练“声明式生成多个元素”</li>
+<li>是否在同目录（同目录可直接按类型名引用）</li>
+<li>是否在引擎 import path 下</li>
+<li>是否属于某个 QML module（通过 import 引入）</li>
+</ul>
+<p>建议项目一旦开始做组件库，就尽量走 module 化，而不是靠“目录碰巧在一起”。</p>
+<hr />
+<h2 id="6">6. 推荐的目录结构（不强制）<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>思路是把“页面”和“组件库”分开：</p>
+<ul>
+<li><code>qml/pages/</code>：页面级 UI</li>
+<li><code>qml/components/</code>：可复用组件</li>
+<li><code>qml/theme/</code>：Theme、token、样式工具</li>
+<li><code>assets/</code>：图片、字体等资源</li>
 </ul>
 <hr />
-<h2 id="_5">小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见坑<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>QML 是声明式 UI：用树结构描述界面，用属性表达状态</li>
-<li>绑定让界面自动跟随状态变化，动画让变化更丝滑</li>
-<li>不用 QtQuick.Controls 也能组合出可复用组件（Rectangle + Text + MouseArea）</li>
+<li>QML 类型找不到：多数是 import 路径/模块没配置好，而不是语法问题</li>
+<li>发布后找不到图片：开发时用相对路径，发布时没把文件带上；优先用 qrc</li>
+<li>模块版本混乱：建议统一一个模块 URI 和版本，对外暴露稳定 API</li>
 </ul>
-<p>下一篇：见 <a href="../03-QML%E5%B8%83%E5%B1%80%E4%B8%8E%E5%AE%9A%E4%BD%8D-anchors-positioners-%E5%B0%BA%E5%AF%B8%E7%B3%BB%E7%BB%9F/">03-QML布局与定位：anchors / positioners / 尺寸系统</a></p>
+<hr />
+<h2 id="_3">小结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>qrc 管“打包与稳定路径”，module 管“工程化导入与类型组织”</li>
+<li>小项目可先用同目录引用；一旦组件多，就尽快 module 化</li>
+</ul>
+<p>下一篇：见 <a href="../09-%E6%80%A7%E8%83%BD%E4%B8%8E%E8%B0%83%E8%AF%95-Binding%E5%BE%AA%E7%8E%AF-Profiler-SceneGraph/">09-性能与调试：Binding 循环、过度创建、Profiler/Scene Graph</a></p>
 
 
 
