@@ -10,8 +10,8 @@
 
 ## 先决知识（建议）
 
-- 已安装 Qt 与 Qt Creator（见 Qt 01 章）
-- 能在 Qt Creator 里创建并运行工程（见 Qt 02 章）
+- 已安装 Qt 与 Qt Creator
+- Qt Creator 里已有可用的 Desktop Kit（Qt 版本 + 编译器）
 
 ---
 
@@ -99,7 +99,7 @@ Window {
 - 或者 CMake/编译器路径报错
 
 处理：
-- 回到 Qt Creator 的 Kits 设置，确保 Qt 版本与编译器都装齐（见 Qt 02 章）
+- 回到 Qt Creator 的 Kits 设置，确保 Qt 版本与编译器都装齐
 
 ### 4.2 QML 版本/模块导入失败
 
@@ -145,4 +145,3 @@ Window {
 - 能跑起来以后再学“绑定、状态、动画、组件化”会轻松很多
 
 下一篇：见 [02-QML入门-快速搭界面（不使用QtQuick.Controls）](02-QML入门-快速搭界面（不使用QtQuick.Controls）.md)
-

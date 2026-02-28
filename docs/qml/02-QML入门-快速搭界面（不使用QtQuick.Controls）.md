@@ -202,5 +202,4 @@ SimpleButton {
 - 绑定让界面自动跟随状态变化，动画让变化更丝滑
 - 不用 QtQuick.Controls 也能组合出可复用组件（Rectangle + Text + MouseArea）
 
-下一篇：见 [00-QML单页组件规范](00-QML单页组件规范.md)
-
+下一篇：见 [03-QML布局与定位：anchors / positioners / 尺寸系统](03-QML布局与定位-anchors-positioners-尺寸系统.md)
