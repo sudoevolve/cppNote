@@ -99,8 +99,13 @@ nav:
     - 目录: qml/00-目录.md
     - 01-创建QML项目: qml/01-创建QML项目-从QtCreator到跑起来.md
     - 02-QML入门: qml/02-QML入门-快速搭界面（不使用QtQuick.Controls）.md
-    - 03-MD3主题与配色: qml/03-MD3主题与配色体系-用Theme管理颜色字体圆角.md
-    - 04-接入md3.Core: qml/04-接入md3.Core组件库-从源码集成到QML导入.md
-    - 组件规范: qml/00-QML单页组件规范.md
+    - 03-布局与定位: qml/03-QML布局与定位-anchors-positioners-尺寸系统.md
+    - 04-状态与动画: qml/04-QML状态与动画-states-transitions-behavior.md
+    - 05-组件化规范: qml/05-QML组件化规范-属性信号方法-可复用写法.md
+    - 06-与C++交互: qml/06-QML与C++交互-注册类型-上下文属性-信号槽.md
+    - 07-主题与配色体系: qml/07-主题与配色体系-Theme管理颜色字体圆角.md
+    - 08-资源与工程组织: qml/08-资源与工程组织-qrc-qmldir-QMLModule-CMake.md
+    - 09-性能与调试: qml/09-性能与调试-Binding循环-Profiler-SceneGraph.md
+    - 10-元素与属性速查: qml/10-QML常用元素与属性速查.md
     - 组件:
       - SplitText: qml/components/SplitText/SplitText.md
