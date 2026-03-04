@@ -109,3 +109,19 @@ nav:
     - 10-元素与属性速查: qml/10-QML常用元素与属性速查.md
     - 组件:
       - SplitText: qml/components/SplitText/SplitText.md
+  - OpenGL:
+    - 目录: OpenGL/00-目录.md
+    - 01-概念: OpenGL/01-概念-GPU驱动上下文渲染管线.md
+    - 02-搭工程: OpenGL/02-搭工程-CMake窗口上下文Loader调试输出.md
+    - 03-三角形: OpenGL/03-第一个三角形-VAO-VBO-EBO-最小Shader.md
+    - 04-坐标变换: OpenGL/04-坐标与变换-NDC-矩阵-MVP-右手系.md
+    - 05-顶点插值: OpenGL/05-顶点属性与插值-颜色-varying-Gamma直觉.md
+    - 06-纹理: OpenGL/06-纹理-采样-wrap-filter-mipmap-sRGB.md
+    - 07-相机: OpenGL/07-相机-LookAt-轨道相机-第一人称相机.md
+    - 08-深度裁剪: OpenGL/08-深度与裁剪-depth-test-face-culling-clip-space.md
+    - 09-模型网格: OpenGL/09-模型与网格-OBJ-GLTF加载-法线-切线.md
+    - 10-光照基础: OpenGL/10-光照基础-Lambert-Phong-BlinnPhong-能量直觉.md
+    - 11-阴影入门: OpenGL/11-阴影入门-ShadowMap最小实现-常见伪影.md
+    - 12-离屏后处理: OpenGL/12-离屏渲染-FBO-后处理-HDR-曝光.md
+    - 13-性能工程: OpenGL/13-性能与工程-状态切换-批处理-调试-Profiling.md
+    - 14-PBR入门: OpenGL/14-PBR入门-BRDF直觉-实现骨架.md
