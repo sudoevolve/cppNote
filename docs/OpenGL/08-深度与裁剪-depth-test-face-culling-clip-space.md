@@ -105,11 +105,134 @@ glFrontFace(GL_CCW);
 
 ---
 
+## 6. 透明与混合（Blending）：从“能画”到“看起来对”
+
+透明不是“把 alpha 写成 0.5”，它是一整套规则：
+
+- 颜色怎么混合（blend）
+- 深度怎么处理（depth write / depth test）
+- 绘制顺序怎么安排（排序）
+
+### 6.1 开启混合：最常见的 alpha 混合
+
+初始化（一次即可）：
+
+```cpp
+glEnable(GL_BLEND);
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+```
+
+如果你的片元输出 `vec4(rgb, a)`，那么最终颜色约等于：
+
+- out = src * a + dst * (1-a)
+
+### 6.2 深度与透明：最容易踩坑的组合
+
+不透明物体的习惯是：
+
+- depth test 开
+- depth write 开（默认）
+- 顺序随意（通常前到后更省像素）
+
+透明物体通常更稳的规则是：
+
+- depth test 开（仍然需要遮挡）
+- depth write 关（避免“透明物体把后面的透明物体挡死”）
+- 按相机距离从远到近画（保证混合正确）
+
+绘制透明物体前（每帧，开始画透明队列之前）：
+
+```cpp
+glDepthMask(GL_FALSE);
+```
+
+画完透明队列后恢复：
+
+```cpp
+glDepthMask(GL_TRUE);
+```
+
+### 6.3 预乘 Alpha（Premultiplied Alpha）：UI/贴图常见语义
+
+有些贴图数据是“预乘 alpha”的：RGB 已经乘过 A。
+
+这时对应的混合因子通常是：
+
+```cpp
+glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+```
+
+你可以用一个工程口径记住区别：
+
+- 非预乘：src.rgb 还没乘 a，用 `SRC_ALPHA`
+- 预乘：src.rgb 已经乘 a，用 `ONE`
+
+---
+
+## 7. 模板缓冲（Stencil）：用一个 8-bit mask 做“分区域渲染”
+
+模板缓冲的直觉是：每个像素除了 color/depth，还有一个小小的整数标签（常见 8-bit）。
+
+你可以用它做很多“效果技巧”：
+
+- 描边/高亮（先写模板，再只在模板外画一圈）
+- 镜子/洞口/门户（只在模板区域画某个 pass）
+- HUD/遮罩（限制绘制范围）
+
+### 7.1 开启模板测试与基本用法
+
+初始化（一次即可）：
+
+```cpp
+glEnable(GL_STENCIL_TEST);
+```
+
+最小配置（概念上）：
+
+- `glStencilFunc`：通过条件（参考值 vs 当前 stencil 值）
+- `glStencilOp`：通过/失败时怎么改 stencil 值
+
+示例：先把某个物体所在像素的 stencil 写成 1：
+
+```cpp
+glStencilMask(0xFF);
+glStencilFunc(GL_ALWAYS, 1, 0xFF);
+glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+```
+
+然后再画第二遍，只允许在 stencil != 1 的地方画（用于描边外扩）：
+
+```cpp
+glStencilMask(0x00);
+glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+```
+
+画完恢复写入：
+
+```cpp
+glStencilMask(0xFF);
+glStencilFunc(GL_ALWAYS, 0, 0xFF);
+```
+
+### 7.2 记住“清理”与 FBO 的关系
+
+如果你启用了 stencil buffer，每帧清理要把 stencil 也清掉：
+
+```cpp
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+```
+
+离屏渲染时，如果你的 FBO 没有 stencil 附件，你再怎么 `glEnable(GL_STENCIL_TEST)` 也不会按你预期工作。
+
+---
+
 ## 常见坑
 
 - **只清了颜色没清深度**：画面会越来越怪
 - **near/far 乱填**：深度问题会在你以为“还没学到那一步”时就出现
 - **剔除开启后全消失**：先检查绕序，再检查是否有负缩放
+- **透明物体“越画越黑/越画越怪”**：检查混合因子、深度写入、以及是否按远到近排序
+- **Stencil 没效果**：检查是否有 stencil buffer，是否清了 stencil，是否禁用了 stencil 写入（mask）
 
 ---
 
@@ -125,6 +248,16 @@ glFrontFace(GL_CCW);
 - 题目：画两个几乎重叠的平面，调整 near/far 观察闪烁变化
 - 目标：把“深度精度”从概念变成现象
 
+### 练习 3：做一个透明 Billboard（树叶/玻璃）并排序
+
+- 题目：画多张带 alpha 的四边形，按相机距离从远到近绘制
+- 目标：把“透明 = 混合 + 深度策略 + 顺序”跑通
+
+### 练习 4：做一个描边效果（Stencil）
+
+- 题目：第一遍写 stencil=1，第二遍略微放大模型，只在 stencil!=1 的区域画纯色边
+- 目标：掌握 stencil 的最常用工程套路
+
 ---
 
 ## 小结
@@ -132,6 +265,7 @@ glFrontFace(GL_CCW);
 - 3D 必须开启深度测试，并且每帧清 depth
 - 裁剪/视锥问题优先从 Model/View/Projection 去排查
 - 面剔除是简单有效的性能手段，但要理解绕序与负缩放
+- 透明渲染要同时管住：混合、深度写入、绘制顺序
+- Stencil 是“分区域渲染”的强力工具，描边/遮罩类效果都离不开它
 
 下一篇：见 [09-模型与网格：OBJ/GLTF（简化版）加载、法线、切线](09-模型与网格-OBJ-GLTF加载-法线-切线.md)
-

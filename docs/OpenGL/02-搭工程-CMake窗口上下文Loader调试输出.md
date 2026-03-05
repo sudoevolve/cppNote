@@ -7,6 +7,7 @@
 - 搭出一个“稳定可复用”的最小工程骨架：创建窗口 → 创建上下文 → 加载 OpenGL 函数 → 帧循环
 - 把黑屏变成“可观测问题”：打印版本信息、打开调试输出、确保 resize 不出错
 - 为下一章画三角形准备好：清屏、viewport、输入事件的最小支持
+- 把工程落地到 VS：用 vcpkg 管依赖，用 VS/CMake 进行配置与调试
 
 ## 先决条件
 
@@ -40,6 +41,20 @@ OpenGLPlayground/
     (后续再加)
 ```
 
+如果你的终点是“小型渲染器”，建议从一开始就把骨架稍微工程化一点（后续章节可以逐步填充，不要求现在就写满）：
+
+```
+OpenGLPlayground/
+  CMakeLists.txt
+  src/
+    app/
+      main.cpp
+    renderer/
+      (后续逐步拆：Shader/Mesh/Texture/Camera/Material/Pass)
+  shaders/
+  assets/
+```
+
 ---
 
 ## 3. 获取依赖：两种常用方式
@@ -60,6 +75,20 @@ vcpkg install glfw3 glm
 ```
 -DCMAKE_TOOLCHAIN_FILE=.../vcpkg/scripts/buildsystems/vcpkg.cmake
 ```
+
+如果你的目标是“Visual Studio 里一键配置/构建/调试”，更推荐的工程口径是：
+
+- vcpkg 走 manifest（`vcpkg.json`）或至少固定 triplet（例如 `x64-windows`）
+- CMake 用 Presets 或 VS 的 CMake 集成来选择工具链与 triplet
+
+概念示例（CMake configure 时传入）：
+
+```
+-DCMAKE_TOOLCHAIN_FILE=.../vcpkg/scripts/buildsystems/vcpkg.cmake
+-DVCPKG_TARGET_TRIPLET=x64-windows
+```
+
+这样你在 VS 里切 Debug/Release、切 x64 架构时，依赖也能跟着稳定复用。
 
 GLAD 通常不是 vcpkg 主线方案（也可以装），更常见是“直接把生成的 glad 源码放进工程”。本教程在“讲清楚原理”的前提下，建议你用自己生成的 glad。
 

@@ -119,11 +119,87 @@ HDR 的工程路线通常是：
 
 ---
 
+## 7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）
+
+MSAA（多重采样）解决的是“几何边缘的锯齿”。它的工程特点是：
+
+- 对边缘更明显（尤其是对比强烈的轮廓）
+- 对 shader 内部细节（贴图高频、subpixel 线条）帮助有限
+- 成本通常比更复杂的后处理 AA 更可控
+
+### 7.1 默认 framebuffer 的 MSAA（最简单）
+
+如果你直接渲染到默认 framebuffer，通常只需要：
+
+1. 创建窗口时请求 samples
+2. 开启 `GL_MULTISAMPLE`
+
+GLFW 示例（创建窗口前）：
+
+```cpp
+glfwWindowHint(GLFW_SAMPLES, 4);
+```
+
+初始化（一次即可）：
+
+```cpp
+glEnable(GL_MULTISAMPLE);
+```
+
+这条路的限制是：你不容易把“MSAA 后的结果”当纹理采样来做后处理。
+
+### 7.2 离屏 + MSAA：需要一次 resolve（blit）
+
+如果你既要 MSAA，又要后处理，常见链路是两级 FBO：
+
+- MSAA FBO：渲染场景（附件是多重采样 renderbuffer/texture）
+- Resolve FBO：把 MSAA 结果 resolve 到普通 texture（用于 screen pass 采样）
+
+关键点是：多重采样纹理不能直接用 `sampler2D` 当普通纹理采样（它是 `sampler2DMS`）。
+
+工程上更常用的是 resolve：
+
+```cpp
+glBindFramebuffer(GL_READ_FRAMEBUFFER, msaaFbo);
+glBindFramebuffer(GL_DRAW_FRAMEBUFFER, resolveFbo);
+glBlitFramebuffer(0, 0, w, h, 0, 0, w, h, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+```
+
+之后 screen pass 采样 `resolveFbo` 的 color texture 就和你当前章节的流程一致了。
+
+### 7.3 MSAA FBO 的附件怎么选
+
+最省心的组合通常是：
+
+- color：多重采样 renderbuffer（只用于 resolve，不需要采样）
+- depth/stencil：多重采样 renderbuffer
+
+如果你确实想直接在 shader 里采 MSAA（比如自己做 resolve 或某些特殊效果），才会去用多重采样 texture + `sampler2DMS`。
+
+---
+
+## 8. 抗锯齿路线：MSAA / FXAA / TAA 怎么选
+
+这里先给一个“工程口径”，避免初学阶段被名词拖走：
+
+- MSAA：解决几何边缘锯齿；实现简单；离屏需要 resolve
+- FXAA：后处理，成本低；对贴图/细线也有帮助，但会略糊
+- TAA：画质潜力大但工程复杂（历史缓冲、抖动、重投影、拖影处理）
+
+如果你的教程主线目标是“稳定做项目”：
+
+- 先把 MSAA 跑通（默认 framebuffer 或离屏 resolve 版）
+- 再做一个 FXAA（作为 screen pass 的可选后处理）
+
+---
+
 ## 常见坑
 
 - **FBO 不完整**：附件没配齐，必须检查 framebuffer status
 - **viewport 没恢复**：离屏尺寸与窗口尺寸不同，容易导致最终画面缩放/裁剪异常
 - **深度丢失**：scene pass 没有深度附件会导致 3D 遮挡错误
+- **MSAA 开了但看不出区别**：确认是否真的创建了多重采样 buffer，以及是否开启了 `GL_MULTISAMPLE`
+- **离屏 MSAA 后处理异常**：确认是否做了 resolve（blit），以及采样的是否是普通 texture
 
 ---
 
@@ -139,6 +215,11 @@ HDR 的工程路线通常是：
 - 题目：在 screen pass 里加 `exposure`，做一次简单 tone mapping（例如 `1 - exp(-c * exposure)`）
 - 目标：建立 HDR→LDR 的最小通路
 
+### 练习 3：把离屏渲染升级为“MSAA + resolve + 后处理”
+
+- 题目：scene pass 渲染到 MSAA FBO，再 blit 到普通 FBO 的纹理，最后做 screen pass 后处理
+- 目标：把“抗锯齿”和“后处理”合并成一条稳定链路
+
 ---
 
 ## 小结
@@ -146,6 +227,6 @@ HDR 的工程路线通常是：
 - FBO 让你把“一帧”变成一张可采样的纹理
 - 后处理就是屏幕空间 shader：先让链路跑通再追求复杂效果
 - HDR 的核心是先装下亮度范围，再做映射与曝光控制
+- MSAA 是高性价比的几何抗锯齿；离屏时要记得 resolve 到普通纹理
 
 下一篇：见 [13-性能与工程：状态切换、批处理、调试与 Profiling](13-性能与工程-状态切换-批处理-调试-Profiling.md)
-
