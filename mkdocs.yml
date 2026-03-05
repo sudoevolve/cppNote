@@ -125,3 +125,12 @@ nav:
     - 12-离屏后处理: OpenGL/12-离屏渲染-FBO-后处理-HDR-曝光.md
     - 13-性能工程: OpenGL/13-性能与工程-状态切换-批处理-调试-Profiling.md
     - 14-PBR入门: OpenGL/14-PBR入门-BRDF直觉-实现骨架.md
+  - FFmpeg:
+    - 目录: ffmpeg/00-目录.md
+    - 01-安装与工程: ffmpeg/01-安装与工程-vcpkg-CMake-VS.md
+    - 02-命令行速查: ffmpeg/02-命令行速查-转码-抽帧-拼接-同步.md
+    - 03-libav入门: ffmpeg/03-libav入门-打开文件-解码-拿到帧.md
+    - 04-概念总览: ffmpeg/04-概念总览-容器编码流时间基像素格式.md
+    - 05-编码参数与质量: ffmpeg/05-编码参数与质量-CRF码率预设GOP像素格式.md
+    - 06-滤镜与常见场景: ffmpeg/06-滤镜与常见场景-filtergraph-缩放裁剪叠加字幕.md
+    - 07-ffprobe与排错: ffmpeg/07-ffprobe与排错-流选择map-同步-常见报错.md
