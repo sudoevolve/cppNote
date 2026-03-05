@@ -2359,6 +2359,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#7-msaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-framebuffer-msaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 默认 framebuffer 的 MSAA（最简单）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-msaa-resolveblit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 离屏 + MSAA：需要一次 resolve（blit）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-msaa-fbo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 MSAA FBO 的附件怎么选
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-msaa-fxaa-taa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 抗锯齿路线：MSAA / FXAA / TAA 怎么选
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2397,6 +2458,17 @@
     <span class="md-ellipsis">
       
         练习 2：加入曝光参数（概念级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3msaa-resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 3：把离屏渲染升级为“MSAA + resolve + 后处理”
       
     </span>
   </a>
@@ -2634,6 +2706,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#7-msaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-framebuffer-msaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 默认 framebuffer 的 MSAA（最简单）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-msaa-resolveblit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 离屏 + MSAA：需要一次 resolve（blit）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-msaa-fbo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 MSAA FBO 的附件怎么选
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-msaa-fxaa-taa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 抗锯齿路线：MSAA / FXAA / TAA 怎么选
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2672,6 +2805,17 @@
     <span class="md-ellipsis">
       
         练习 2：加入曝光参数（概念级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3msaa-resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 3：把离屏渲染升级为“MSAA + resolve + 后处理”
       
     </span>
   </a>
@@ -2808,11 +2952,67 @@
 <li>不要在 LDR 里硬堆亮度；先把亮度范围装下，再映射到屏幕。</li>
 </ul>
 <hr />
+<h2 id="7-msaa">7. MSAA：最“白给”的抗锯齿（以及离屏怎么接）<a class="headerlink" href="#7-msaa" title="Permanent link">&para;</a></h2>
+<p>MSAA（多重采样）解决的是“几何边缘的锯齿”。它的工程特点是：</p>
+<ul>
+<li>对边缘更明显（尤其是对比强烈的轮廓）</li>
+<li>对 shader 内部细节（贴图高频、subpixel 线条）帮助有限</li>
+<li>成本通常比更复杂的后处理 AA 更可控</li>
+</ul>
+<h3 id="71-framebuffer-msaa">7.1 默认 framebuffer 的 MSAA（最简单）<a class="headerlink" href="#71-framebuffer-msaa" title="Permanent link">&para;</a></h3>
+<p>如果你直接渲染到默认 framebuffer，通常只需要：</p>
+<ol>
+<li>创建窗口时请求 samples</li>
+<li>开启 <code>GL_MULTISAMPLE</code></li>
+</ol>
+<p>GLFW 示例（创建窗口前）：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_SAMPLES</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+</span></code></pre></div>
+<p>初始化（一次即可）：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_MULTISAMPLE</span><span class="p">);</span>
+</span></code></pre></div>
+<p>这条路的限制是：你不容易把“MSAA 后的结果”当纹理采样来做后处理。</p>
+<h3 id="72-msaa-resolveblit">7.2 离屏 + MSAA：需要一次 resolve（blit）<a class="headerlink" href="#72-msaa-resolveblit" title="Permanent link">&para;</a></h3>
+<p>如果你既要 MSAA，又要后处理，常见链路是两级 FBO：</p>
+<ul>
+<li>MSAA FBO：渲染场景（附件是多重采样 renderbuffer/texture）</li>
+<li>Resolve FBO：把 MSAA 结果 resolve 到普通 texture（用于 screen pass 采样）</li>
+</ul>
+<p>关键点是：多重采样纹理不能直接用 <code>sampler2D</code> 当普通纹理采样（它是 <code>sampler2DMS</code>）。</p>
+<p>工程上更常用的是 resolve：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">glBindFramebuffer</span><span class="p">(</span><span class="n">GL_READ_FRAMEBUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">msaaFbo</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">glBindFramebuffer</span><span class="p">(</span><span class="n">GL_DRAW_FRAMEBUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">resolveFbo</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">glBlitFramebuffer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_NEAREST</span><span class="p">);</span>
+</span></code></pre></div>
+<p>之后 screen pass 采样 <code>resolveFbo</code> 的 color texture 就和你当前章节的流程一致了。</p>
+<h3 id="73-msaa-fbo">7.3 MSAA FBO 的附件怎么选<a class="headerlink" href="#73-msaa-fbo" title="Permanent link">&para;</a></h3>
+<p>最省心的组合通常是：</p>
+<ul>
+<li>color：多重采样 renderbuffer（只用于 resolve，不需要采样）</li>
+<li>depth/stencil：多重采样 renderbuffer</li>
+</ul>
+<p>如果你确实想直接在 shader 里采 MSAA（比如自己做 resolve 或某些特殊效果），才会去用多重采样 texture + <code>sampler2DMS</code>。</p>
+<hr />
+<h2 id="8-msaa-fxaa-taa">8. 抗锯齿路线：MSAA / FXAA / TAA 怎么选<a class="headerlink" href="#8-msaa-fxaa-taa" title="Permanent link">&para;</a></h2>
+<p>这里先给一个“工程口径”，避免初学阶段被名词拖走：</p>
+<ul>
+<li>MSAA：解决几何边缘锯齿；实现简单；离屏需要 resolve</li>
+<li>FXAA：后处理，成本低；对贴图/细线也有帮助，但会略糊</li>
+<li>TAA：画质潜力大但工程复杂（历史缓冲、抖动、重投影、拖影处理）</li>
+</ul>
+<p>如果你的教程主线目标是“稳定做项目”：</p>
+<ul>
+<li>先把 MSAA 跑通（默认 framebuffer 或离屏 resolve 版）</li>
+<li>再做一个 FXAA（作为 screen pass 的可选后处理）</li>
+</ul>
+<hr />
 <h2 id="_3">常见坑<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>FBO 不完整</strong>：附件没配齐，必须检查 framebuffer status</li>
 <li><strong>viewport 没恢复</strong>：离屏尺寸与窗口尺寸不同，容易导致最终画面缩放/裁剪异常</li>
 <li><strong>深度丢失</strong>：scene pass 没有深度附件会导致 3D 遮挡错误</li>
+<li><strong>MSAA 开了但看不出区别</strong>：确认是否真的创建了多重采样 buffer，以及是否开启了 <code>GL_MULTISAMPLE</code></li>
+<li><strong>离屏 MSAA 后处理异常</strong>：确认是否做了 resolve（blit），以及采样的是否是普通 texture</li>
 </ul>
 <hr />
 <h2 id="_4">小练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2826,12 +3026,18 @@
 <li>题目：在 screen pass 里加 <code>exposure</code>，做一次简单 tone mapping（例如 <code>1 - exp(-c * exposure)</code>）</li>
 <li>目标：建立 HDR→LDR 的最小通路</li>
 </ul>
+<h3 id="3msaa-resolve">练习 3：把离屏渲染升级为“MSAA + resolve + 后处理”<a class="headerlink" href="#3msaa-resolve" title="Permanent link">&para;</a></h3>
+<ul>
+<li>题目：scene pass 渲染到 MSAA FBO，再 blit 到普通 FBO 的纹理，最后做 screen pass 后处理</li>
+<li>目标：把“抗锯齿”和“后处理”合并成一条稳定链路</li>
+</ul>
 <hr />
 <h2 id="_5">小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>FBO 让你把“一帧”变成一张可采样的纹理</li>
 <li>后处理就是屏幕空间 shader：先让链路跑通再追求复杂效果</li>
 <li>HDR 的核心是先装下亮度范围，再做映射与曝光控制</li>
+<li>MSAA 是高性价比的几何抗锯齿；离屏时要记得 resolve 到普通纹理</li>
 </ul>
 <p>下一篇：见 <a href="../13-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%B7%A5%E7%A8%8B-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2-%E6%89%B9%E5%A4%84%E7%90%86-%E8%B0%83%E8%AF%95-Profiling/">13-性能与工程：状态切换、批处理、调试与 Profiling</a></p>
 

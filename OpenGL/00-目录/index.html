@@ -2425,6 +2425,7 @@
 
 <h1 id="opengl">OpenGL 教程目录（从概念 → 窗口 → 三角形 → 逐步深入）<a class="headerlink" href="#opengl" title="Permanent link">&para;</a></h1>
 <p>按顺序学即可：每篇都以“先看到结果”为优先级，然后再解释背后的关键概念与工程化组织方式。</p>
+<p>本教程的最终落地目标是：用 <strong>Visual Studio + CMake + vcpkg</strong> 搭出一个可迭代的小型渲染器（能画、可调试、可扩展）。</p>
 <h2 id="_1">学习路线<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../01-%E6%A6%82%E5%BF%B5-GPU%E9%A9%B1%E5%8A%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/">01-概念：GPU、驱动、上下文、渲染管线</a></li>
@@ -2434,13 +2435,13 @@
 <li><a href="../05-%E9%A1%B6%E7%82%B9%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%8F%92%E5%80%BC-%E9%A2%9C%E8%89%B2-varying-Gamma%E7%9B%B4%E8%A7%89/">05-顶点属性与插值：颜色、varying、Gamma 的直觉</a></li>
 <li><a href="../06-%E7%BA%B9%E7%90%86-%E9%87%87%E6%A0%B7-wrap-filter-mipmap-sRGB/">06-纹理：采样、wrap/filter、mipmap、sRGB</a></li>
 <li><a href="../07-%E7%9B%B8%E6%9C%BA-LookAt-%E8%BD%A8%E9%81%93%E7%9B%B8%E6%9C%BA-%E7%AC%AC%E4%B8%80%E4%BA%BA%E7%A7%B0%E7%9B%B8%E6%9C%BA/">07-相机：LookAt、轨道相机、第一人称相机</a></li>
-<li><a href="../08-%E6%B7%B1%E5%BA%A6%E4%B8%8E%E8%A3%81%E5%89%AA-depth-test-face-culling-clip-space/">08-深度与裁剪：depth test、face culling、clip space</a></li>
+<li><a href="../08-%E6%B7%B1%E5%BA%A6%E4%B8%8E%E8%A3%81%E5%89%AA-depth-test-face-culling-clip-space/">08-深度与裁剪：depth test、face culling、clip space（含透明混合/Stencil）</a></li>
 <li><a href="../09-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BD%91%E6%A0%BC-OBJ-GLTF%E5%8A%A0%E8%BD%BD-%E6%B3%95%E7%BA%BF-%E5%88%87%E7%BA%BF/">09-模型与网格：OBJ/GLTF（简化版）加载、法线、切线</a></li>
 <li><a href="../10-%E5%85%89%E7%85%A7%E5%9F%BA%E7%A1%80-Lambert-Phong-BlinnPhong-%E8%83%BD%E9%87%8F%E7%9B%B4%E8%A7%89/">10-光照基础：Lambert/Phong/Blinn-Phong 与能量直觉</a></li>
 <li><a href="../11-%E9%98%B4%E5%BD%B1%E5%85%A5%E9%97%A8-ShadowMap%E6%9C%80%E5%B0%8F%E5%AE%9E%E7%8E%B0-%E5%B8%B8%E8%A7%81%E4%BC%AA%E5%BD%B1/">11-阴影入门：Shadow Map 的最小实现与常见伪影</a></li>
-<li><a href="../12-%E7%A6%BB%E5%B1%8F%E6%B8%B2%E6%9F%93-FBO-%E5%90%8E%E5%A4%84%E7%90%86-HDR-%E6%9B%9D%E5%85%89/">12-离屏渲染：FBO、后处理、HDR/曝光</a></li>
-<li><a href="../13-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%B7%A5%E7%A8%8B-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2-%E6%89%B9%E5%A4%84%E7%90%86-%E8%B0%83%E8%AF%95-Profiling/">13-性能与工程：状态切换、批处理、调试与 Profiling</a></li>
-<li><a href="../14-PBR%E5%85%A5%E9%97%A8-BRDF%E7%9B%B4%E8%A7%89-%E5%AE%9E%E7%8E%B0%E9%AA%A8%E6%9E%B6/">14-PBR 入门：BRDF 的直觉与实现骨架</a></li>
+<li><a href="../12-%E7%A6%BB%E5%B1%8F%E6%B8%B2%E6%9F%93-FBO-%E5%90%8E%E5%A4%84%E7%90%86-HDR-%E6%9B%9D%E5%85%89/">12-离屏渲染：FBO、后处理、HDR/曝光（含 MSAA/AA 路线）</a></li>
+<li><a href="../13-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%B7%A5%E7%A8%8B-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2-%E6%89%B9%E5%A4%84%E7%90%86-%E8%B0%83%E8%AF%95-Profiling/">13-性能与工程：状态切换、批处理、调试与 Profiling（含 UBO/Instancing/RenderDoc）</a></li>
+<li><a href="../14-PBR%E5%85%A5%E9%97%A8-BRDF%E7%9B%B4%E8%A7%89-%E5%AE%9E%E7%8E%B0%E9%AA%A8%E6%9E%B6/">14-PBR 入门：BRDF 的直觉与实现骨架（含 Cubemap/IBL 最小链路）</a></li>
 </ul>
 <h2 id="inigo-quilez">参考阅读（Inigo Quilez）<a class="headerlink" href="#inigo-quilez" title="Permanent link">&para;</a></h2>
 <p>这些是 iquilezles.org/articles 的文章索引（外部链接），后续章节会逐步吸收其中的思路与技巧：</p>
