@@ -1,0 +1,4769 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Qt/C++/QML 开发文档与组件库">
+      
+      
+      
+      
+        <link rel="prev" href="../00-%E7%9B%AE%E5%BD%95/">
+      
+      
+        <link rel="next" href="../02-%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>01-C++与LeetCode知识点 - QtCraft 开发文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/online-compile.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/theme-palette.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c-leetcode" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="QtCraft 开发文档" class="md-header__button md-logo" aria-label="QtCraft 开发文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QtCraft 开发文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01-C++与LeetCode知识点
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  C++ 基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  LeetCode
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Qt/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  Qt 开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qml/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  QML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../OpenGL/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  OpenGL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ffmpeg/00-%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+  FFmpeg
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QtCraft 开发文档" class="md-nav__button md-logo" aria-label="QtCraft 开发文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    QtCraft 开发文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++ 基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/01-%E4%BB%8E0%E5%BC%80%E5%A7%8B-%E5%8F%98%E9%87%8F%E6%9D%A1%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-从0开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/02-%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F-%E6%8A%8A%E4%BB%A3%E7%A0%81%E5%B0%81%E8%A3%85%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-函数与作用域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/03-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2-%E4%B8%80%E7%BB%84%E6%95%B0%E6%8D%AE%E6%80%8E%E4%B9%88%E6%94%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-数组与字符串
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/04-%E6%8C%87%E9%92%88%E4%B8%8E%E5%BC%95%E7%94%A8-%E7%90%86%E8%A7%A3%E5%86%85%E5%AD%98%E4%B8%8E%E5%9C%B0%E5%9D%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-指针与引用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/05-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%87%BD%E6%95%B0%E5%88%B0%E6%8A%BD%E8%B1%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-类与对象
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/06-%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86-%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8RAII%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-资源管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/07-STL%E5%AE%B9%E5%99%A8-vectormap%E7%AD%89%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%AE%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-STL容器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/08-STL%E7%AE%97%E6%B3%95%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8-%E6%8E%92%E5%BA%8F%E6%9F%A5%E6%89%BE%E9%81%8D%E5%8E%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-STL算法与迭代器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/09-%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E6%8E%92%E5%BA%8F%E5%8F%8C%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-复杂度与基础算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/10-%E9%80%92%E5%BD%92%E4%B8%8EDFS_BFS-%E6%A0%91%E4%B8%8E%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%B5%B0%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-递归与DFS_BFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/11-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8-%E4%BB%8E%E7%8A%B6%E6%80%81%E5%88%B0%E8%BD%AC%E7%A7%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-动态规划入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/12-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E9%80%9A%E8%AE%AF%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/13-C%2B%2B20%E6%96%B0%E7%89%B9%E6%80%A7-ConceptsRangesCoroutinesModules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-C++20新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/14-C%2B%2B23%E6%96%B0%E7%89%B9%E6%80%A7-%E6%A0%87%E5%87%86%E5%BA%93%E6%9B%B4%E5%A5%BD%E7%94%A8%E4%B8%8E%E8%AF%AD%E6%B3%95%E8%A1%A5%E5%BC%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-C++23新特性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/15-C%2B%2B11%E5%88%B023-%E6%A0%87%E5%87%86%E6%BC%94%E8%BF%9B%E8%B7%AF%E7%BA%BF%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15-标准演进路线图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/16-CMake%E5%85%A5%E9%97%A8-%E4%BB%8E%E5%8D%95%E6%96%87%E4%BB%B6%E5%88%B0%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16-CMake入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LeetCode
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LeetCode
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-C++与LeetCode知识点
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-C++与LeetCode知识点
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 语言基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 语言基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-int-double-char-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 基本类型 int / double / char / bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 const 常量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 引用 &amp;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 指针 *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 默认参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 值传递 / 引用传递 / 指针传递
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 template 模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 struct
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 class
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. STL 容器与常用工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. STL 容器与常用工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 vector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 sort
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 lambda 匿名函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-unordered_map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 unordered_map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-set-unordered_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 set / unordered_set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-priority_queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11 priority_queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 常见数据结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 常见数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 链表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 二叉树
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 BFS 层序遍历
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 双指针
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 二分查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 滑动窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 前缀和
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 DFS 递归
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 回溯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 贪心
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 动态规划
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 刷题时的使用建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 刷题时的使用建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 看到题先想什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 新手最容易混的几组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 一份推荐学习顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-常用代码模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt 开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qt 开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/01-%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-下载与安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/02-QtCreator%E5%85%A5%E9%97%A8-%E5%88%9B%E5%BB%BA%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-QtCreator入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/03-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84-%E6%9E%84%E5%BB%BA%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-项目结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/04-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD-Qt%E7%9A%84%E2%80%9C%E4%BA%8B%E4%BB%B6%E8%BF%9E%E7%BA%BF%E2%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-信号与槽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/05-Widget%E5%85%A5%E9%97%A8-%E7%AA%97%E5%8F%A3%E6%8C%89%E9%92%AE%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-Widget入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/06-%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F-qrc%E5%9B%BE%E7%89%87%E5%AD%97%E4%BD%93%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-资源系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/07-%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6-%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%AF%B9%E8%AF%9D%E6%A1%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-常用控件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/08-%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80-QPainter%E7%94%BB%E5%9B%BE%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-绘制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/09-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E4%BB%BB%E5%8A%A1-%E4%B8%8D%E5%8D%A1UI%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-线程与任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/10-%E7%BD%91%E7%BB%9C%E4%B8%8EJSON-%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-网络与JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/11-%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9E%8B%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-综合练习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Qt/12-Qt%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0-QStringQColor%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-常用类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    QML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/01-%E5%88%9B%E5%BB%BAQML%E9%A1%B9%E7%9B%AE-%E4%BB%8EQtCreator%E5%88%B0%E8%B7%91%E8%B5%B7%E6%9D%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-创建QML项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/02-QML%E5%85%A5%E9%97%A8-%E5%BF%AB%E9%80%9F%E6%90%AD%E7%95%8C%E9%9D%A2%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8QtQuick.Controls%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-QML入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/03-QML%E5%B8%83%E5%B1%80%E4%B8%8E%E5%AE%9A%E4%BD%8D-anchors-positioners-%E5%B0%BA%E5%AF%B8%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-布局与定位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/04-QML%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8A%A8%E7%94%BB-states-transitions-behavior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-状态与动画
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/05-QML%E7%BB%84%E4%BB%B6%E5%8C%96%E8%A7%84%E8%8C%83-%E5%B1%9E%E6%80%A7%E4%BF%A1%E5%8F%B7%E6%96%B9%E6%B3%95-%E5%8F%AF%E5%A4%8D%E7%94%A8%E5%86%99%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-组件化规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/06-QML%E4%B8%8EC%2B%2B%E4%BA%A4%E4%BA%92-%E6%B3%A8%E5%86%8C%E7%B1%BB%E5%9E%8B-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B1%9E%E6%80%A7-%E4%BF%A1%E5%8F%B7%E6%A7%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-与C++交互
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/07-%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E8%89%B2%E4%BD%93%E7%B3%BB-Theme%E7%AE%A1%E7%90%86%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93%E5%9C%86%E8%A7%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-主题与配色体系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/08-%E8%B5%84%E6%BA%90%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%BB%84%E7%BB%87-qrc-qmldir-QMLModule-CMake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-资源与工程组织
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/09-%E6%80%A7%E8%83%BD%E4%B8%8E%E8%B0%83%E8%AF%95-Binding%E5%BE%AA%E7%8E%AF-Profiler-SceneGraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-性能与调试
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/10-QML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7%E9%80%9F%E6%9F%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-元素与属性速查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    组件
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    组件
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qml/components/SplitText/SplitText/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SplitText
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenGL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenGL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/01-%E6%A6%82%E5%BF%B5-GPU%E9%A9%B1%E5%8A%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/02-%E6%90%AD%E5%B7%A5%E7%A8%8B-CMake%E7%AA%97%E5%8F%A3%E4%B8%8A%E4%B8%8B%E6%96%87Loader%E8%B0%83%E8%AF%95%E8%BE%93%E5%87%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-搭工程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/03-%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2-VAO-VBO-EBO-%E6%9C%80%E5%B0%8FShader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-三角形
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/04-%E5%9D%90%E6%A0%87%E4%B8%8E%E5%8F%98%E6%8D%A2-NDC-%E7%9F%A9%E9%98%B5-MVP-%E5%8F%B3%E6%89%8B%E7%B3%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-坐标变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/05-%E9%A1%B6%E7%82%B9%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%8F%92%E5%80%BC-%E9%A2%9C%E8%89%B2-varying-Gamma%E7%9B%B4%E8%A7%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-顶点插值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/06-%E7%BA%B9%E7%90%86-%E9%87%87%E6%A0%B7-wrap-filter-mipmap-sRGB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-纹理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/07-%E7%9B%B8%E6%9C%BA-LookAt-%E8%BD%A8%E9%81%93%E7%9B%B8%E6%9C%BA-%E7%AC%AC%E4%B8%80%E4%BA%BA%E7%A7%B0%E7%9B%B8%E6%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-相机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/08-%E6%B7%B1%E5%BA%A6%E4%B8%8E%E8%A3%81%E5%89%AA-depth-test-face-culling-clip-space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-深度裁剪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/09-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BD%91%E6%A0%BC-OBJ-GLTF%E5%8A%A0%E8%BD%BD-%E6%B3%95%E7%BA%BF-%E5%88%87%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-模型网格
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/10-%E5%85%89%E7%85%A7%E5%9F%BA%E7%A1%80-Lambert-Phong-BlinnPhong-%E8%83%BD%E9%87%8F%E7%9B%B4%E8%A7%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-光照基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/11-%E9%98%B4%E5%BD%B1%E5%85%A5%E9%97%A8-ShadowMap%E6%9C%80%E5%B0%8F%E5%AE%9E%E7%8E%B0-%E5%B8%B8%E8%A7%81%E4%BC%AA%E5%BD%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-阴影入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/12-%E7%A6%BB%E5%B1%8F%E6%B8%B2%E6%9F%93-FBO-%E5%90%8E%E5%A4%84%E7%90%86-HDR-%E6%9B%9D%E5%85%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-离屏后处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/13-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%B7%A5%E7%A8%8B-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2-%E6%89%B9%E5%A4%84%E7%90%86-%E8%B0%83%E8%AF%95-Profiling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-性能工程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenGL/14-PBR%E5%85%A5%E9%97%A8-BRDF%E7%9B%B4%E8%A7%89-%E5%AE%9E%E7%8E%B0%E9%AA%A8%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-PBR入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFmpeg
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FFmpeg
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/00-%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%B7%A5%E7%A8%8B-vcpkg-CMake-VS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-安装与工程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/02-%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%80%9F%E6%9F%A5-%E8%BD%AC%E7%A0%81-%E6%8A%BD%E5%B8%A7-%E6%8B%BC%E6%8E%A5-%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-命令行速查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/03-libav%E5%85%A5%E9%97%A8-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6-%E8%A7%A3%E7%A0%81-%E6%8B%BF%E5%88%B0%E5%B8%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-libav入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/04-%E6%A6%82%E5%BF%B5%E6%80%BB%E8%A7%88-%E5%AE%B9%E5%99%A8%E7%BC%96%E7%A0%81%E6%B5%81%E6%97%B6%E9%97%B4%E5%9F%BA%E5%83%8F%E7%B4%A0%E6%A0%BC%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-概念总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/05-%E7%BC%96%E7%A0%81%E5%8F%82%E6%95%B0%E4%B8%8E%E8%B4%A8%E9%87%8F-CRF%E7%A0%81%E7%8E%87%E9%A2%84%E8%AE%BEGOP%E5%83%8F%E7%B4%A0%E6%A0%BC%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-编码参数与质量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/06-%E6%BB%A4%E9%95%9C%E4%B8%8E%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF-filtergraph-%E7%BC%A9%E6%94%BE%E8%A3%81%E5%89%AA%E5%8F%A0%E5%8A%A0%E5%AD%97%E5%B9%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-滤镜与常见场景
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ffmpeg/07-ffprobe%E4%B8%8E%E6%8E%92%E9%94%99-%E6%B5%81%E9%80%89%E6%8B%A9map-%E5%90%8C%E6%AD%A5-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-ffprobe与排错
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 语言基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 语言基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-int-double-char-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 基本类型 int / double / char / bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 const 常量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 引用 &amp;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 指针 *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 默认参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 值传递 / 引用传递 / 指针传递
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 template 模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 struct
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 class
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. STL 容器与常用工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. STL 容器与常用工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 vector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 sort
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 lambda 匿名函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-unordered_map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 unordered_map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-set-unordered_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 set / unordered_set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-priority_queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11 priority_queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 常见数据结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 常见数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 链表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 二叉树
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 BFS 层序遍历
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 双指针
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 二分查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 滑动窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 前缀和
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 DFS 递归
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 回溯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 贪心
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 动态规划
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 刷题时的使用建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 刷题时的使用建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 看到题先想什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 新手最容易混的几组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 一份推荐学习顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="c-leetcode">C++ 与 LeetCode 知识点<a class="headerlink" href="#c-leetcode" title="Permanent link">&para;</a></h1>
+<ol>
+<li>语言基础</li>
+<li>STL 容器与常用工具</li>
+<li>常见数据结构</li>
+<li>算法思想</li>
+</ol>
+<hr />
+<h2 id="1">1. 语言基础<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-int-double-char-bool">1.1 基本类型 <code>int / double / char / bool</code><a class="headerlink" href="#11-int-double-char-bool" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li><code>int</code>：整数，比如 <code>1</code>、<code>100</code></li>
+<li><code>double</code>：小数，比如 <code>3.14</code></li>
+<li><code>char</code>：单个字符，比如 <code>'A'</code></li>
+<li><code>bool</code>：布尔值，只有 <code>true</code> 和 <code>false</code></li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">bool</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li><code>int</code>：数组下标、计数、答案</li>
+<li><code>double</code>：平均值、几何题、精度计算</li>
+<li><code>char</code>：字符串中的单个字符</li>
+<li><code>bool</code>：条件判断、标记某件事是否成立</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>char</code> 用单引号，<code>string</code> 用双引号</li>
+<li><code>bool</code> 输出时默认常显示成 <code>1</code> 或 <code>0</code></li>
+<li><code>int / int</code> 还是整数除法，比如 <code>3 / 2 = 1</code></li>
+<li>大数据范围时，<code>int</code> 可能不够，要考虑 <code>long long</code></li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>int</code> 看成“整”</li>
+<li><code>double</code> 看成“双精度小数”</li>
+<li><code>char</code> 看成“一个字符”</li>
+<li><code>bool</code> 看成“真/假开关”</li>
+</ul>
+<hr />
+<h3 id="12-const">1.2 <code>const</code> 常量<a class="headerlink" href="#12-const" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li><code>const</code> 表示这个值定义后不允许修改</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>表示固定配置</li>
+<li>保护函数参数不被修改</li>
+<li>提高代码可读性和安全性</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>const</code> 变量定义后不能再赋值</li>
+<li><code>const vector&lt;int&gt;&amp; nums</code> 里的 <code>const</code> 是“不能通过这个引用改内容”</li>
+<li>不要把“不能改引用指向”和“不能改引用内容”混在一起</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>const = constant = 常量 = 只读</code></li>
+</ul>
+<hr />
+<h3 id="13">1.3 引用 <code>&amp;</code><a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>引用就是变量的“别名”</li>
+<li>改引用，本质上就是改原变量</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>函数传参时避免拷贝大对象</li>
+<li>在 <code>for</code> 循环里直接修改容器元素</li>
+<li>给已有变量起另一个名字</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>引用必须在定义时绑定，后面不能改绑到别的变量</li>
+<li><code>int&amp; ref = a;</code> 不是“复制”，而是“共享同一个值”</li>
+<li><code>const int&amp;</code> 和 <code>int&amp;</code> 不一样，前者不能改值</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>引用不是新盒子，而是给旧盒子贴了个新标签</li>
+</ul>
+<hr />
+<h3 id="14">1.4 指针 <code>*</code><a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>指针里存的是地址</li>
+<li><code>*ptr</code> 才是这个地址指向的值</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">95</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">score</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>链表</li>
+<li>二叉树</li>
+<li>动态内存</li>
+<li>函数中修改外部变量</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>int* ptr</code> 是定义指针，<code>*ptr</code> 是解引用，不是一回事</li>
+<li>空指针 <code>nullptr</code> 不能直接解引用</li>
+<li><code>&amp;x</code> 是取地址，<code>*ptr</code> 是取地址里的值，方向别搞反</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>&amp;</code> 是“拿到门牌号”</li>
+<li><code>*</code> 是“顺着门牌号找到屋里的人”</li>
+</ul>
+<hr />
+<h3 id="15">1.5 默认参数<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>调用函数时如果少传参数，就用函数定义里给的默认值</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>某个参数经常是固定值</li>
+<li>想让函数调用更简洁</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>默认参数通常写在函数声明或定义里，只写一处</li>
+<li>有默认值的参数一般放后面</li>
+<li>调用时如果传了值，就不会再用默认值</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“你不说，我就按默认方案办”</li>
+</ul>
+<hr />
+<h3 id="16">1.6 值传递 / 引用传递 / 指针传递<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>值传递：传副本</li>
+<li>引用传递：传原对象别名</li>
+<li>指针传递：传地址</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">changeByValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">changeByReference</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">changeByPointer</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>判断函数会不会改外部变量</li>
+<li>优化参数传递效率</li>
+<li>刷题时修改链表、树节点</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>值传递里改了参数，外部不变</li>
+<li>指针传递前要先判断是不是 <code>nullptr</code></li>
+<li>大对象如果值传递，会多一次拷贝</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>值传递：复印件</li>
+<li>引用传递：同一个人</li>
+<li>指针传递：给你地址你自己去找</li>
+</ul>
+<hr />
+<h3 id="17-template">1.7 <code>template</code> 模板<a class="headerlink" href="#17-template" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>让同一份代码适配多种类型</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">T</span><span class="w"> </span><span class="n">myMax</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>写通用函数</li>
+<li>写通用类</li>
+<li>理解 STL 为什么能支持很多类型</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>模板参数类型要能支持你写的操作，比如这里要求能比较 <code>&gt;</code></li>
+<li>新手阶段常把模板想复杂，本质上就是“先不写死类型”</li>
+<li>模板报错通常会比较长，要学会先看自己传入的类型是否匹配</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>模板就是“类型占位符”</li>
+</ul>
+<hr />
+<h3 id="18-struct">1.8 <code>struct</code><a class="headerlink" href="#18-struct" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>把几个相关变量打包成一个整体</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>学生信息</li>
+<li>比赛记录</li>
+<li>链表节点</li>
+<li>树节点</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>struct</code> 里也可以有函数</li>
+<li><code>struct</code> 默认成员权限是 <code>public</code></li>
+<li>不要把“结构体”和“类”看成完全不同的东西，它们很像</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>struct = 打包数据</code></li>
+</ul>
+<hr />
+<h3 id="19-class">1.9 <code>class</code><a class="headerlink" href="#19-class" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>把“数据”和“操作数据的函数”封装在一起</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="n">Person</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">};</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>系统学习 C++ 面向对象</li>
+<li>需要封装属性和行为</li>
+<li>项目开发中组织复杂逻辑</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>class</code> 默认权限是 <code>private</code></li>
+<li>构造函数不是普通函数，它在对象创建时自动调用</li>
+<li><code>private</code> 成员外部不能直接访问</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>class = 更讲封装的 struct</code></li>
+</ul>
+<hr />
+<h2 id="2-stl">2. STL 容器与常用工具<a class="headerlink" href="#2-stl" title="Permanent link">&para;</a></h2>
+<h3 id="21-vector">2.1 <code>vector</code><a class="headerlink" href="#21-vector" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>动态数组，长度可以自动变化</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>存一组数字</li>
+<li>做题里最常见的顺序容器</li>
+<li>图、前缀和、DP 数组等</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>nums[i]</code> 访问前要确保没越界</li>
+<li>空 <code>vector</code> 不能直接访问 <code>nums[0]</code></li>
+<li><code>size()</code> 返回的是无符号类型，新手做减法时要小心</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>vector = 会自动长大的数组</code></li>
+</ul>
+<hr />
+<h3 id="22-sort">2.2 <code>sort</code><a class="headerlink" href="#22-sort" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>STL 里的排序函数</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>排名</li>
+<li>二分前预处理</li>
+<li>去重前预处理</li>
+<li>区间题、贪心题</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>排序默认是升序</li>
+<li>区间写法是左闭右开，所以是 <code>begin()</code> 到 <code>end()</code></li>
+<li>排序后原顺序会被打乱</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“先排好，再做题”</li>
+</ul>
+<hr />
+<h3 id="23-lambda">2.3 <code>lambda</code> 匿名函数<a class="headerlink" href="#23-lambda" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>临时写在使用位置的小函数</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>自定义排序规则</li>
+<li>临时比较逻辑</li>
+<li>配合 STL 算法使用</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>return x &gt; y;</code> 表示降序</li>
+<li><code>[]</code> 是捕获列表，新手先记住“这是 lambda 的一部分”</li>
+<li>写比较函数时要返回布尔值</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>lambda = “现场写一个小函数”</li>
+</ul>
+<hr />
+<h3 id="24-string">2.4 <code>string</code><a class="headerlink" href="#24-string" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>字符串类型，本质上是字符序列</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>子串问题</li>
+<li>回文串</li>
+<li>模拟题</li>
+<li>双指针字符串题</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>s[0]</code> 是字符，不是字符串</li>
+<li>注意越界，空字符串没有 <code>s[0]</code></li>
+<li><code>size()</code> 返回长度，不是最后一个下标</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>string = 字符数组的升级版</code></li>
+</ul>
+<hr />
+<h3 id="25-pair">2.5 <code>pair</code><a class="headerlink" href="#25-pair" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>一次存两个值</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">pair</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">studentPair</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">studentPair</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">studentPair</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">95</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>坐标 <code>(x, y)</code></li>
+<li>键值对</li>
+<li>区间左右端点</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>first</code> 和 <code>second</code> 别写反</li>
+<li>两个值的类型可以不同</li>
+<li>简单场景很好用，但数据更多时更适合 <code>struct</code></li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>pair = 绑定成一对</code></li>
+</ul>
+<hr />
+<h3 id="26-unordered_map">2.6 <code>unordered_map</code><a class="headerlink" href="#26-unordered_map" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>哈希表，存 <code>key -&gt; value</code></li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">age</span><span class="p">[</span><span class="s">&quot;Tom&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>计数</li>
+<li>映射</li>
+<li>查重</li>
+<li>两数之和</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>age["Tom"]</code> 如果不存在，会创建这个键</li>
+<li>只判断是否存在时，更建议用 <code>count</code></li>
+<li><code>unordered_map</code> 遍历顺序不是有序的</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“拿 key，秒找 value”</li>
+</ul>
+<hr />
+<h3 id="27-set-unordered_set">2.7 <code>set</code> / <code>unordered_set</code><a class="headerlink" href="#27-set-unordered_set" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li><code>set</code>：自动去重，且有序</li>
+<li><code>unordered_set</code>：自动去重，查找更快，但无序</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>去重</li>
+<li>判重</li>
+<li>判断某个值是否出现过</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>set</code> 会自动排序</li>
+<li><code>unordered_set</code> 不保证输出顺序</li>
+<li>两者都不会存重复元素</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>set = 去重集合</code></li>
+<li><code>unordered_set = 更快的去重集合</code></li>
+</ul>
+<hr />
+<h3 id="28-map">2.8 <code>map</code><a class="headerlink" href="#28-map" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>有序的 <code>key -&gt; value</code></li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">scoreMap</span><span class="p">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">scoreMap</span><span class="p">[</span><span class="s">&quot;math&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">90</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>需要按 key 顺序遍历</li>
+<li>统计频次后有序输出</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>map</code> 一般比 <code>unordered_map</code> 慢一点</li>
+<li><code>map</code> 是按 key 排序，不是按 value</li>
+<li><code>scoreMap["x"]</code> 不存在时也会新建</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li><code>map = 有序版哈希表思路</code></li>
+</ul>
+<hr />
+<h3 id="29-stack">2.9 <code>stack</code><a class="headerlink" href="#29-stack" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>栈，后进先出</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">st</span><span class="p">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>括号匹配</li>
+<li>单调栈</li>
+<li>模拟函数调用过程</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>pop()</code> 只弹出，不返回值</li>
+<li>取栈顶要用 <code>top()</code></li>
+<li>空栈不能 <code>top()</code> 或 <code>pop()</code></li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>像一摞盘子，最后放的先拿</li>
+</ul>
+<hr />
+<h3 id="210-queue">2.10 <code>queue</code><a class="headerlink" href="#210-queue" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>队列，先进先出</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>BFS</li>
+<li>层序遍历</li>
+<li>任务调度</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li><code>front()</code> 取队头，不删除</li>
+<li><code>pop()</code> 删除队头，不返回值</li>
+<li>空队列不能直接 <code>front()</code></li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>像排队，先来的先处理</li>
+</ul>
+<hr />
+<h3 id="211-priority_queue">2.11 <code>priority_queue</code><a class="headerlink" href="#211-priority_queue" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>优先队列，默认大根堆</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">maxHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">maxHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>Top K</li>
+<li>每次取当前最大值</li>
+<li>堆题</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>默认取最大，不是最小</li>
+<li><code>pop()</code> 也不返回值</li>
+<li>如果要最小堆，需要额外写法</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“谁优先级高，谁先出来”</li>
+</ul>
+<hr />
+<h2 id="3">3. 常见数据结构<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 链表<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>每个节点存当前值和下一个节点地址</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">ListNode</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>反转链表</li>
+<li>删除节点</li>
+<li>合并链表</li>
+<li>快慢指针</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>容易把 <code>next</code> 指向搞丢</li>
+<li>改指针前要先保存下一节点</li>
+<li>空链表要先判空</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>链表像“火车车厢”，每节只知道下一节</li>
+</ul>
+<hr />
+<h3 id="32">3.2 二叉树<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>每个节点最多有左孩子和右孩子</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="p">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">};</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>前序、中序、后序遍历</li>
+<li>层序遍历</li>
+<li>递归搜索</li>
+<li>二叉搜索树</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>左右孩子容易写反</li>
+<li>递归时要注意空节点</li>
+<li>树题很多其实是在练递归返回值含义</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>树就是“会分叉的链表”</li>
+</ul>
+<hr />
+<h3 id="33-bfs">3.3 BFS 层序遍历<a class="headerlink" href="#33-bfs" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>一层一层地访问节点，通常配合 <code>queue</code></li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>二叉树层序遍历</li>
+<li>图的最短步数</li>
+<li>从起点扩散搜索</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>忘了判空根节点</li>
+<li>进队和出队顺序要清楚</li>
+<li>题目要求“按层处理”时，常要记录当前层大小</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>BFS = “一圈一圈往外扩”</li>
+</ul>
+<hr />
+<h2 id="4">4. 算法思想<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 双指针<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>用两个指针一起移动，减少重复遍历</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">{</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="n">left</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="n">right</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>有序数组</li>
+<li>回文判断</li>
+<li>移除元素</li>
+<li>快慢指针</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>左右指针移动条件容易写错</li>
+<li>边界要想清楚是 <code>&lt;</code> 还是 <code>&lt;=</code></li>
+<li>指针什么时候移动，必须和题意绑定</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“一个人太慢，就两个人一起夹着找”</li>
+</ul>
+<hr />
+<h3 id="42">4.2 二分查找<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>在有序数组里每次看中间，砍掉一半区间</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p">{</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>查目标值</li>
+<li>找左边界/右边界</li>
+<li>答案二分</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>前提通常是“有序”</li>
+<li><code>mid</code> 推荐写成 <code>left + (right - left) / 2</code></li>
+<li>更新边界时很容易死循环</li>
+<li>查值和查边界，写法不完全一样</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“每次砍半”</li>
+</ul>
+<hr />
+<h3 id="43">4.3 滑动窗口<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>用一个连续区间在数组或字符串上滑动</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">right</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p">{</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">条件满足</span><span class="p">)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="n">left</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>最长子串</li>
+<li>最短子数组</li>
+<li>连续区间统计</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>先扩右边还是先缩左边，逻辑要统一</li>
+<li>窗口内维护的量要同步更新，比如 <code>sum</code>、计数器</li>
+<li>不是所有子数组题都能用滑动窗口，通常要求某种单调性</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>像拿一个会移动的窗框去框住一段区间</li>
+</ul>
+<hr />
+<h3 id="44">4.4 前缀和<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>预处理前面所有元素的累计和</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>多次区间求和</li>
+<li>子数组和</li>
+<li>二维矩阵和</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>常见写法是 <code>prefix</code> 长度比原数组大 1</li>
+<li>区间 <code>[l, r]</code> 的和通常是 <code>prefix[r + 1] - prefix[l]</code></li>
+<li>下标很容易错一位</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“前面先攒好，后面直接减”</li>
+</ul>
+<hr />
+<h3 id="45-dfs">4.5 DFS 递归<a class="headerlink" href="#45-dfs" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>一条路先走到底，再回头换路</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="p">{</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>树遍历</li>
+<li>图遍历</li>
+<li>回溯搜索</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>一定要有结束条件</li>
+<li>容易重复访问，图题常需要 <code>visited</code></li>
+<li>递归层数太深可能爆栈</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>DFS = “一路钻到底”</li>
+</ul>
+<hr />
+<h3 id="46">4.6 回溯<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>本质上是“带撤销的 DFS”</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">path</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">backtrack</span><span class="p">(...);</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">path</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>子集</li>
+<li>排列</li>
+<li>组合</li>
+<li>N 皇后</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>忘记撤销选择 <code>pop_back()</code></li>
+<li>结果数组和当前路径数组别混</li>
+<li>去重题通常要额外处理重复元素</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“试一下，不行就退回来”</li>
+</ul>
+<hr />
+<h3 id="47">4.7 贪心<a class="headerlink" href="#47" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>每一步先做当前看起来最优的选择</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<ul>
+<li>不一定有固定模板，关键是证明“局部最优能推出全局最优”</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>跳跃游戏</li>
+<li>区间覆盖</li>
+<li>分发饼干</li>
+<li>股票部分题型</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>不是“看起来合理”就一定能贪心</li>
+<li>贪心题难点通常不是写代码，而是想清楚策略为什么对</li>
+<li>局部最优不一定总能推出全局最优</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“先拿眼前最划算的”</li>
+</ul>
+<hr />
+<h3 id="48">4.8 动态规划<a class="headerlink" href="#48" title="Permanent link">&para;</a></h3>
+<p><strong>是什么</strong></p>
+<ul>
+<li>把大问题拆成小问题，当前答案由之前状态推出来</li>
+</ul>
+<p><strong>怎么用</strong></p>
+<p>常见思考顺序：</p>
+<ol>
+<li><code>dp[i]</code> 表示什么</li>
+<li>状态转移方程是什么</li>
+<li>初始值是什么</li>
+<li>遍历顺序是什么</li>
+</ol>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>爬楼梯</li>
+<li>背包问题</li>
+<li>最长上升子序列</li>
+<li>编辑距离</li>
+</ul>
+<p><strong>易错点</strong></p>
+<ul>
+<li>最容易错的是 <code>dp[i]</code> 的定义不清</li>
+<li>初始值不对，后面全错</li>
+<li>遍历顺序可能影响结果</li>
+<li>别把 DP 和递归硬混，先写清状态</li>
+</ul>
+<p><strong>记忆方法</strong></p>
+<ul>
+<li>“今天的答案，靠昨天和前天推出来”</li>
+</ul>
+<hr />
+<h2 id="5">5. 刷题时的使用建议<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 看到题先想什么<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<ul>
+<li>是不是数组 / 字符串题</li>
+<li>能不能排序</li>
+<li>有没有哈希表优化</li>
+<li>是不是连续区间，可以考虑滑动窗口或前缀和</li>
+<li>是不是树 / 图，考虑 DFS 或 BFS</li>
+<li>是不是最值或计数，考虑动态规划</li>
+</ul>
+<h3 id="52">5.2 新手最容易混的几组<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>引用</code> 和 <code>指针</code></li>
+<li><code>stack::top()</code> 和 <code>pop()</code></li>
+<li><code>queue::front()</code> 和 <code>pop()</code></li>
+<li><code>map</code> 和 <code>unordered_map</code></li>
+<li><code>set</code> 和 <code>unordered_set</code></li>
+<li><code>DFS</code> 和 <code>回溯</code></li>
+<li><code>贪心</code> 和 <code>动态规划</code></li>
+</ul>
+<h3 id="53">5.3 一份推荐学习顺序<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<ol>
+<li>先把 <code>vector</code>、<code>string</code>、<code>unordered_map</code>、<code>sort</code> 学熟</li>
+<li>再学 <code>stack</code>、<code>queue</code>、<code>set</code>、<code>map</code></li>
+<li>然后进 <code>链表</code>、<code>二叉树</code></li>
+<li>最后主攻 <code>双指针</code>、<code>二分</code>、<code>滑动窗口</code>、<code>DFS</code>、<code>BFS</code>、<code>回溯</code>、<code>贪心</code>、<code>DP</code></li>
+</ol>
+<hr />
+<h2 id="6">6. 总结<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>如果把这份笔记压缩成一句话：</p>
+<ul>
+<li>语言基础解决“代码怎么写”</li>
+<li>STL 容器解决“数据怎么存”</li>
+<li>数据结构解决“题目对象长什么样”</li>
+<li>算法思想解决“题目怎么做”</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/online-compile.js"></script>
+      
+        <script src="../../assets/javascripts/theme-palette.js"></script>
+      
+    
+  </body>
+</html>
