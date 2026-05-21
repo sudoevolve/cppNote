@@ -81,6 +81,10 @@ nav:
     - 14-C++23新特性: cpp/14-C++23新特性-标准库更好用与语法补强.md
     - 15-标准演进路线图: cpp/15-C++11到23-标准演进路线图.md
     - 16-CMake入门: cpp/16-CMake入门-从单文件到多目标工程.md
+  - LeetCode:
+    - 目录: leetcode/00-目录.md
+    - 01-C++与LeetCode知识点: leetcode/leetcode_notes.md
+    - 02-常用代码模板: leetcode/02-常用代码模板.md
   - Qt 开发:
     - 目录: Qt/00-目录.md
     - 01-下载与安装: Qt/01-下载与安装-阿里云镜像加速.md
